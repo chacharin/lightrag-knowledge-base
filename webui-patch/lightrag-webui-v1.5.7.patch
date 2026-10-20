@@ -1,0 +1,2070 @@
+diff --git a/lightrag_webui/index.html b/lightrag_webui/index.html
+index d1c235f..8e3d2d1 100644
+--- a/lightrag_webui/index.html
++++ b/lightrag_webui/index.html
+@@ -1,13 +1,18 @@
+ <!doctype html>
+-<html lang="en">
++<html lang="th">
+   <head>
+     <meta charset="UTF-8" />
+     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+     <meta http-equiv="Pragma" content="no-cache" />
+     <meta http-equiv="Expires" content="0" />
+-    <link rel="icon" type="image/png" href="favicon.png" />
++    <!-- no page icon: the browser shows its own default -->
++    <link rel="preconnect" href="https://fonts.googleapis.com" />
++    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
++    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,600;0,700;1,400&display=swap" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+-    <title>LightRAG</title>
++    <title>คลังความรู้ (Knowledge Base)</title>
++    <!-- where the MCP server is reached; edit webui/kb-config.js on the server, no rebuild needed -->
++    <script src="kb-config.js"></script>
+     <!-- __LIGHTRAG_RUNTIME_CONFIG__ -->
+   </head>
+   <body>
+diff --git a/lightrag_webui/public/favicon.png b/lightrag_webui/public/favicon.png
+deleted file mode 100644
+index 307566ab234967efc3134a0a81dc375c8e3c8dfc..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+HcmV?d00001
+
+literal 15675
+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
+
+diff --git a/lightrag_webui/public/kb-config.js b/lightrag_webui/public/kb-config.js
+new file mode 100644
+index 0000000..d829f9a
+--- /dev/null
++++ b/lightrag_webui/public/kb-config.js
+@@ -0,0 +1,7 @@
++// Where other systems reach the MCP server of this knowledge base (shown in the "Connect" panel).
++// Edit this file on the server (webui/kb-config.js) - no rebuild needed. Leave mcpUrl null to use
++// <the host in the browser's address bar>:<mcpPort>/mcp, e.g. http://192.168.1.20:8806/mcp
++window.__KB_CONFIG__ = {
++  mcpUrl: null,
++  mcpPort: 8806,
++};
+diff --git a/lightrag_webui/src/App.tsx b/lightrag_webui/src/App.tsx
+index 7068c52..900db86 100644
+--- a/lightrag_webui/src/App.tsx
++++ b/lightrag_webui/src/App.tsx
+@@ -2,9 +2,6 @@ import { useState, useCallback, useEffect, useRef } from 'react'
+ import ThemeProvider from '@/components/ThemeProvider'
+ import TabVisibilityProvider from '@/contexts/TabVisibilityProvider'
+ import ApiKeyAlert from '@/components/ApiKeyAlert'
+-import StatusIndicator from '@/components/status/StatusIndicator'
+-import { SiteInfo } from '@/lib/constants'
+-import { entryHomeHref } from '@/lib/pathPrefix'
+ import { useBackendState, useAuthStore } from '@/stores/state'
+ import { useSettingsStore } from '@/stores/settings'
+ import { getAuthStatus } from '@/api/lightrag'
+@@ -17,8 +14,13 @@ import {
+   wasVersionCheckedThisPageLoad
+ } from '@/lib/versionCheckCache'
+ import SiteHeader from '@/features/SiteHeader'
++import TopBar from '@/features/kb/TopBar'
++import SidePanel from '@/features/kb/SidePanel'
++import ConnectPanel from '@/features/kb/ConnectPanel'
++import SideChat from '@/features/kb/SideChat'
++import { useTranslation } from 'react-i18next'
+ import { InvalidApiKeyError, RequireApiKeError } from '@/api/lightrag'
+-import { ZapIcon } from 'lucide-react'
++import { MessageSquareIcon, PlugIcon } from 'lucide-react'
+ 
+ import GraphViewer from '@/features/GraphViewer'
+ import DocumentManager from '@/features/DocumentManager'
+@@ -40,6 +42,7 @@ function App() {
+   const versionCheckRef = useRef(false); // Prevent duplicate calls in Vite dev mode
+   const healthCheckInitializedRef = useRef(false); // Prevent duplicate health checks in Vite dev mode
+   const pageRestoreGeneration = usePageRestoreGeneration()
++  const { t } = useTranslation()
+ 
+   const handleApiKeyAlertOpenChange = useCallback((open: boolean) => {
+     setApiKeyAlertOpen(open)
+@@ -189,25 +192,7 @@ function App() {
+         {initializing ? (
+           // Loading state while initializing with simplified header
+           <div className="flex h-screen w-screen flex-col">
+-            {/* Simplified header during initialization - matches SiteHeader structure */}
+-            <header className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 flex h-10 w-full border-b px-4 backdrop-blur">
+-              <div className="min-w-[200px] w-auto flex items-center">
+-                {/* Document-relative brand link — resolves to this entry's own
+-                    root (see SiteHeader / entryHomeHref). */}
+-                <a href={entryHomeHref(window.location.pathname)} className="flex items-center gap-2">
+-                  <ZapIcon className="size-4 text-emerald-400" aria-hidden="true" />
+-                  <span className="font-bold md:inline-block">{SiteInfo.name}</span>
+-                </a>
+-              </div>
+-
+-              {/* Empty middle section to maintain layout */}
+-              <div className="flex h-10 flex-1 items-center justify-center">
+-              </div>
+-
+-              {/* Empty right section to maintain layout */}
+-              <nav className="w-[200px] flex items-center justify-end">
+-              </nav>
+-            </header>
++            <TopBar />
+ 
+             {/* Loading indicator in content area */}
+             <div className="flex flex-1 items-center justify-center">
+@@ -219,10 +204,21 @@ function App() {
+           </div>
+         ) : (
+           // Main content after initialization
+-          <main className="flex h-screen w-screen overflow-hidden">
++          <main className="flex h-screen w-screen flex-col overflow-hidden">
++            <TopBar />
++            <div className="flex min-h-0 grow">
++            <SidePanel
++              side="left"
++              storageKey="kb-panel-connect"
++              title={t('connect.title')}
++              icon={<PlugIcon className="size-4 text-emerald-600" aria-hidden="true" />}
++              widthClass="w-[320px]"
++            >
++              <ConnectPanel />
++            </SidePanel>
+             <Tabs
+               defaultValue={currentTab}
+-              className="!m-0 flex grow flex-col !p-0 overflow-hidden"
++              className="!m-0 flex min-w-0 grow flex-col !p-0 overflow-hidden"
+               onValueChange={handleTabChange}
+             >
+               <SiteHeader />
+@@ -244,7 +240,16 @@ function App() {
+                 </TabsContent>
+               </div>
+             </Tabs>
+-            {enableHealthCheck && <StatusIndicator />}
++            <SidePanel
++              side="right"
++              storageKey="kb-panel-chat"
++              title={t('sideChat.title')}
++              icon={<MessageSquareIcon className="size-4 text-emerald-600" aria-hidden="true" />}
++              widthClass="w-[360px]"
++            >
++              <SideChat />
++            </SidePanel>
++            </div>
+             <ApiKeyAlert open={apiKeyAlertOpen} onOpenChange={handleApiKeyAlertOpenChange} />
+           </main>
+         )}
+diff --git a/lightrag_webui/src/components/ThemeProvider.tsx b/lightrag_webui/src/components/ThemeProvider.tsx
+index df5816c..7cd95ae 100644
+--- a/lightrag_webui/src/components/ThemeProvider.tsx
++++ b/lightrag_webui/src/components/ThemeProvider.tsx
+@@ -24,24 +24,11 @@ export default function ThemeProvider({ children, ...props }: ThemeProviderProps
+   const theme = useSettingsStore.use.theme()
+   const setTheme = useSettingsStore.use.setTheme()
+ 
++  // Knowledge-base build: always the light theme (there is no theme switch)
+   useEffect(() => {
+     const root = window.document.documentElement
+     root.classList.remove('light', 'dark')
+-
+-    if (theme === 'system') {
+-      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+-      const handleChange = (e: MediaQueryListEvent) => {
+-        root.classList.remove('light', 'dark')
+-        root.classList.add(e.matches ? 'dark' : 'light')
+-      }
+-
+-      root.classList.add(mediaQuery.matches ? 'dark' : 'light')
+-      mediaQuery.addEventListener('change', handleChange)
+-
+-      return () => mediaQuery.removeEventListener('change', handleChange)
+-    } else {
+-      root.classList.add(theme)
+-    }
++    root.classList.add('light')
+   }, [theme])
+ 
+   const value = {
+diff --git a/lightrag_webui/src/components/customization/useCustomizedContent.ts b/lightrag_webui/src/components/customization/useCustomizedContent.ts
+index 0b253c7..41257d9 100644
+--- a/lightrag_webui/src/components/customization/useCustomizedContent.ts
++++ b/lightrag_webui/src/components/customization/useCustomizedContent.ts
+@@ -7,7 +7,6 @@ import {
+   useCustomizationStore
+ } from '@/stores/customization'
+ import { resolveUiLanguage } from '@/lib/browserLanguage'
+-import defaultLogoUrl from '@/assets/logo.svg'
+ import { resolveBrandTitle } from '@/components/customization/brandTitle'
+ 
+ /**
+@@ -174,7 +173,7 @@ export function useCustomizedContent(
+   return {
+     loading: false,
+     direction: RTL_LANGUAGES.has(language) ? 'rtl' : 'ltr',
+-    logoUrl: defaultLogoUrl,
++    logoUrl: null, // knowledge-base build: no logo by default (a server bundle may still set one)
+     logoAlt: 'LightRAG',
+     welcomeMarkdown: t('workspace.welcome.defaultMarkdown'),
+     queryEmptyMarkdown: t('workspace.queryEmpty.defaultMarkdown'),
+diff --git a/lightrag_webui/src/components/status/StatusIndicator.tsx b/lightrag_webui/src/components/status/StatusIndicator.tsx
+index a76f1c3..accf2c4 100644
+--- a/lightrag_webui/src/components/status/StatusIndicator.tsx
++++ b/lightrag_webui/src/components/status/StatusIndicator.tsx
+@@ -23,7 +23,7 @@ const StatusIndicator = () => {
+   }, [lastCheckTime])
+ 
+   return (
+-    <div className="fixed right-4 bottom-4 flex items-center gap-2 opacity-80 select-none">
++    <div className="flex items-center gap-2 opacity-80 select-none">  {/* knowledge-base build: in the tab row, not fixed */}
+       <div
+         className="flex cursor-pointer items-center gap-2"
+         onClick={() => setDialogOpen(true)}
+diff --git a/lightrag_webui/src/features/LoginPage.tsx b/lightrag_webui/src/features/LoginPage.tsx
+index c501083..1a56207 100644
+--- a/lightrag_webui/src/features/LoginPage.tsx
++++ b/lightrag_webui/src/features/LoginPage.tsx
+@@ -17,7 +17,7 @@ import {
+   DialogTitle
+ } from '@/components/ui/Dialog'
+ import { ScrollArea } from '@/components/ui/ScrollArea'
+-import AppSettings from '@/components/AppSettings'
++import LanguageSwitch from '@/features/kb/LanguageSwitch'
+ import CustomizedMarkdown from '@/components/customization/CustomizedMarkdown'
+ import CustomizedCopyright from '@/components/customization/CustomizedCopyright'
+ import { useCustomizedContent } from '@/components/customization/useCustomizedContent'
+@@ -60,7 +60,6 @@ const LoginPage = ({ autoActivateGuest = true }: LoginPageProps) => {
+   const [agreementsOpen, setAgreementsOpen] = useState(false)
+   // Latch the URL that failed, not a boolean: a language switch may supply
+   // a different logo URL that should get its own load attempt.
+-  const [failedLogoUrl, setFailedLogoUrl] = useState<string | null>(null)
+   const authCheckRef = useRef(false); // Prevent duplicate calls in Vite dev mode
+ 
+   // Fired in PARALLEL with the /auth-status probe below (both are effects of
+@@ -257,7 +256,7 @@ const LoginPage = ({ autoActivateGuest = true }: LoginPageProps) => {
+           right: 'calc(env(safe-area-inset-right) + 1rem)'
+         }}
+       >
+-        <AppSettings className="bg-white/30 dark:bg-gray-800/30 backdrop-blur-sm rounded-md" />
++        <LanguageSwitch />
+       </div>
+       {/* The card centers in the space ABOVE the footer, so the copyright
+           line sits at the page's bottom edge instead of inside the card. */}
+@@ -265,16 +264,9 @@ const LoginPage = ({ autoActivateGuest = true }: LoginPageProps) => {
+         <Card className="w-full max-w-[480px] shadow-lg mx-4">
+           <CardHeader className="flex items-center justify-center space-y-2 pb-8 pt-6">
+             <div className="flex flex-col items-center space-y-4">
+-              {content.logoUrl && failedLogoUrl !== content.logoUrl && (
+-                <img
+-                  src={content.logoUrl}
+-                  alt={content.logoAlt}
+-                  className="h-12 w-12 object-contain"
+-                  onError={() => setFailedLogoUrl(content.logoUrl)}
+-                />
+-              )}
+               <div className="text-center space-y-2">
+-                <h1 className="text-3xl font-bold tracking-tight">{content.brandTitle}</h1>
++                <h1 className="text-3xl font-bold tracking-tight">{t('header.brandTitle')}</h1>
++                <p className="text-muted-foreground text-xs">{t('header.brandSub')}</p>
+                 <p className="text-muted-foreground text-sm">
+                   {t('login.description')}
+                 </p>
+diff --git a/lightrag_webui/src/features/SiteHeader.tsx b/lightrag_webui/src/features/SiteHeader.tsx
+index dfb200a..3c99042 100644
+--- a/lightrag_webui/src/features/SiteHeader.tsx
++++ b/lightrag_webui/src/features/SiteHeader.tsx
+@@ -1,17 +1,14 @@
+ import Button from '@/components/ui/Button'
+-import { entryHomeHref } from '@/lib/pathPrefix'
+-import { SiteInfo, backendBaseUrl } from '@/lib/constants'
+-import AppSettings from '@/components/AppSettings'
++import { backendBaseUrl } from '@/lib/constants'
++import StatusIndicator from '@/components/status/StatusIndicator'
+ import { TabsList, TabsTrigger } from '@/components/ui/Tabs'
+ import { useSettingsStore } from '@/stores/settings'
+ import { useAuthStore, useBackendState } from '@/stores/state'
+ import { cn } from '@/lib/utils'
+ import { useTranslation } from 'react-i18next'
+ import { navigationService } from '@/services/navigation'
+-import { ZapIcon, LogOutIcon, BookOpenIcon } from 'lucide-react'
+-import GithubIcon from '@/components/icons/GithubIcon'
++import { LogOutIcon, BookOpenIcon } from 'lucide-react'
+ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/Tooltip'
+-import TouchDescriptionPopover from '@/components/ui/TouchDescriptionPopover'
+ 
+ interface NavigationTabProps {
+   value: string
+@@ -56,8 +53,9 @@ function TabsNavigation() {
+ 
+ export default function SiteHeader() {
+   const { t } = useTranslation()
+-  const { isGuestMode, coreVersion, apiVersion, username, webuiTitle, webuiDescription } = useAuthStore()
++  const { isGuestMode, coreVersion, apiVersion, username } = useAuthStore()
+   const theme = useSettingsStore.use.theme()
++  const enableHealthCheck = useSettingsStore.use.enableHealthCheck()
+   // Tri-state on purpose — 'unknown' (no successful /health yet) hides the
+   // entry point rather than guessing; see apiDocsCapability in stores/state.ts.
+   const apiDocsCapability = useBackendState.use.apiDocsCapability()
+@@ -80,37 +78,16 @@ export default function SiteHeader() {
+   }
+ 
+   return (
+-    <header className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 flex h-10 w-full border-b px-4 backdrop-blur">
+-      <div className="min-w-[200px] w-auto flex items-center">
++    // Knowledge-base build: this is the second row (the page name is in TopBar above)
++    <header className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-40 flex h-10 w-full border-b px-3 backdrop-blur">
++      <div className="hidden">
+         {/* Document-relative brand link: under HashRouter the pathname always
+             names this entry, so this resolves back to THIS entry — never a
+             cross-entry jump, under any proxy prefix or the dev server's
+             file-per-entry layout (see entryHomeHref). */}
+-        <TooltipProvider>
+-          <Tooltip>
+-            <TooltipTrigger asChild>
+-              <a href={entryHomeHref(window.location.pathname)} className="flex items-center">
+-                <ZapIcon className="mr-2 size-4 text-emerald-400" aria-hidden="true" />
+-                <span className="font-bold md:inline-block">{SiteInfo.name}</span>
+-                {webuiTitle && (
+-                  <>
+-                    <span className="mx-1 text-xs text-gray-500 dark:text-gray-400" aria-hidden="true">|</span>
+-                    <span className="text-sm font-medium">{webuiTitle}</span>
+-                  </>
+-                )}
+-              </a>
+-            </TooltipTrigger>
+-            {webuiDescription && (
+-              <TooltipContent side="bottom">
+-                {webuiDescription}
+-              </TooltipContent>
+-            )}
+-          </Tooltip>
+-        </TooltipProvider>
+-        <TouchDescriptionPopover description={webuiDescription} />
+       </div>
+ 
+-      <div className="flex h-10 flex-1 items-center justify-center">
++      <div className="flex h-10 flex-1 items-center justify-start">
+         <TabsNavigation />
+         {isGuestMode && (
+           <div className="ml-2 self-center px-2 py-1 text-xs bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200 rounded-md">
+@@ -119,8 +96,9 @@ export default function SiteHeader() {
+         )}
+       </div>
+ 
+-      <nav className="w-[200px] flex items-center justify-end">
++      <nav className="flex items-center justify-end">
+         <div className="flex items-center gap-2">
++          {enableHealthCheck && <StatusIndicator />}
+           {versionDisplay && (
+             <TooltipProvider>
+               <Tooltip>
+@@ -142,12 +120,6 @@ export default function SiteHeader() {
+               </a>
+             </Button>
+           )}
+-          <Button variant="ghost" size="icon" side="bottom" tooltip={t('header.projectRepository')}>
+-            <a href={SiteInfo.github} target="_blank" rel="noopener noreferrer">
+-              <GithubIcon className="size-4" />
+-            </a>
+-          </Button>
+-          <AppSettings />
+           {!isGuestMode && (
+             <Button
+               variant="ghost"
+diff --git a/lightrag_webui/src/features/kb/ConnectPanel.tsx b/lightrag_webui/src/features/kb/ConnectPanel.tsx
+new file mode 100644
+index 0000000..caa3457
+--- /dev/null
++++ b/lightrag_webui/src/features/kb/ConnectPanel.tsx
+@@ -0,0 +1,286 @@
++import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react'
++import { useTranslation } from 'react-i18next'
++import { CheckIcon, CopyIcon, ExternalLinkIcon } from 'lucide-react'
++import { backendBaseUrl } from '@/lib/constants'
++import { useSettingsStore } from '@/stores/settings'
++import { useBackendState } from '@/stores/state'
++import { cn } from '@/lib/utils'
++
++/** webui/kb-config.js (edited on the server, no rebuild): where the MCP server is reached. */
++interface KbConfig {
++  mcpUrl?: string | null
++  mcpPort?: number
++}
++declare global {
++  interface Window {
++    __KB_CONFIG__?: KbConfig
++  }
++}
++
++function mcpUrl(): string {
++  const cfg = window.__KB_CONFIG__ || {}
++  if (cfg.mcpUrl) return cfg.mcpUrl
++  return `${window.location.protocol}//${window.location.hostname}:${cfg.mcpPort || 8806}/mcp`
++}
++
++function restBase(): string {
++  return `${window.location.origin}${backendBaseUrl}`
++}
++
++function mask(key: string): string {
++  return key.length <= 8 ? '••••••••' : `${key.slice(0, 4)}${'•'.repeat(12)}${key.slice(-4)}`
++}
++
++function CopyButton({ text }: { text: string }) {
++  const { t } = useTranslation()
++  const [done, setDone] = useState(false)
++  const copy = useCallback(() => {
++    void navigator.clipboard?.writeText(text).then(() => {
++      setDone(true)
++      setTimeout(() => setDone(false), 1500)
++    })
++  }, [text])
++  return (
++    <button
++      type="button"
++      onClick={copy}
++      className="hover:bg-muted flex shrink-0 items-center gap-1 rounded-md border px-2 py-0.5 text-xs"
++    >
++      {done ? <CheckIcon className="size-3" aria-hidden="true" /> : <CopyIcon className="size-3" aria-hidden="true" />}
++      {done ? t('connect.copied') : t('connect.copy')}
++    </button>
++  )
++}
++
++function Label({ children }: { children: ReactNode }) {
++  return <div className="text-muted-foreground mt-4 mb-1 text-[0.7rem] font-semibold tracking-wide uppercase">{children}</div>
++}
++
++function Field({ value, copy }: { value: string; copy?: string }) {
++  return (
++    <div className="bg-muted/50 flex items-center gap-2 rounded-md border px-2 py-1.5">
++      <code className="min-w-0 flex-1 truncate text-xs" title={value}>{value}</code>
++      <CopyButton text={copy ?? value} />
++    </div>
++  )
++}
++
++function Code({ text }: { text: string }) {
++  return (
++    <div className="relative">
++      <pre className="bg-muted/50 max-h-64 overflow-auto rounded-md border p-2 pr-16 text-[0.7rem] leading-relaxed whitespace-pre">{text}</pre>
++      <div className="absolute top-1.5 right-1.5">
++        <CopyButton text={text} />
++      </div>
++    </div>
++  )
++}
++
++function Tabs<T extends string>({ items, value, onChange }: { items: { id: T; label: string }[]; value: T; onChange: (v: T) => void }) {
++  return (
++    <div role="tablist" className="flex flex-wrap gap-1">
++      {items.map((i) => (
++        <button
++          key={i.id}
++          type="button"
++          role="tab"
++          aria-selected={value === i.id}
++          onClick={() => onChange(i.id)}
++          className={cn(
++            'rounded-md border px-2 py-0.5 text-xs',
++            value === i.id ? 'border-emerald-500 bg-emerald-500 text-white' : 'hover:bg-muted'
++          )}
++        >
++          {i.label}
++        </button>
++      ))}
++    </div>
++  )
++}
++
++function Dot({ state, label }: { state: boolean | null; label: string }) {
++  const { t } = useTranslation()
++  const text = state === null ? t('connect.checking') : state ? t('connect.online') : t('connect.offline')
++  return (
++    <span className="flex items-center gap-1.5 text-xs" title={text}>
++      <span className={cn('size-2 rounded-full', state === null ? 'bg-gray-400' : state ? 'bg-emerald-500' : 'bg-red-500')} />
++      {label} · {text}
++    </span>
++  )
++}
++
++/** The MCP server answers its own /health; reachable is all that can be told across origins (no-cors). */
++function useMcpReachable(url: string): boolean | null {
++  const [ok, setOk] = useState<boolean | null>(null)
++  useEffect(() => {
++    let alive = true
++    const health = url.replace(/\/mcp\/?$/, '') + '/health'
++    const probe = () =>
++      fetch(health, { mode: 'no-cors', cache: 'no-store' })
++        .then(() => alive && setOk(true))
++        .catch(() => alive && setOk(false))
++    probe()
++    const id = setInterval(probe, 30000)
++    return () => {
++      alive = false
++      clearInterval(id)
++    }
++  }, [url])
++  return ok
++}
++
++const QUESTION = { th: 'สรุปเอกสารในคลังโดยย่อ', en: 'Summarize the documents in the knowledge base' }
++
++function restExamples(base: string, q: string): Record<string, string> {
++  const body = JSON.stringify({ query: q, mode: 'mix', include_references: true })
++  return {
++    'curl (bash)': `export LIGHTRAG_API_KEY='<API key>'
++
++curl -X POST "${base}/query" \\
++  -H "X-API-Key: $LIGHTRAG_API_KEY" \\
++  -H "Content-Type: application/json" \\
++  -d '${body}'`,
++    PowerShell: `$env:LIGHTRAG_API_KEY = '<API key>'
++
++$body = '${body}'
++Invoke-RestMethod -Method Post -Uri "${base}/query" \`
++  -Headers @{ "X-API-Key" = $env:LIGHTRAG_API_KEY } \`
++  -ContentType "application/json; charset=utf-8" \`
++  -Body ([System.Text.Encoding]::UTF8.GetBytes($body))`,
++    Python: `import os, requests
++
++r = requests.post(
++    "${base}/query",
++    headers={"X-API-Key": os.environ["LIGHTRAG_API_KEY"]},
++    json=${body.replace('true', 'True')},
++    timeout=300,
++)
++print(r.json()["response"])`,
++    JavaScript: `const r = await fetch("${base}/query", {
++  method: "POST",
++  headers: { "X-API-Key": process.env.LIGHTRAG_API_KEY, "Content-Type": "application/json" },
++  body: JSON.stringify(${body}),
++});
++console.log((await r.json()).response);`
++  }
++}
++
++function mcpExamples(url: string): Record<string, string> {
++  return {
++    'Hermes (config.yaml)': `mcp_servers:
++  lightrag:
++    url: ${url}
++    timeout: 180
++    # headers:
++    #   Authorization: Bearer <MCP_AUTH_TOKEN>`,
++    'Claude Code': `claude mcp add --transport http lightrag ${url}
++# with a token:
++# claude mcp add --transport http lightrag ${url} --header "Authorization: Bearer <MCP_AUTH_TOKEN>"`,
++    'JSON (Cursor, others)': JSON.stringify({ mcpServers: { lightrag: { url } } }, null, 2)
++  }
++}
++
++/**
++ * Left panel: how another system reaches this knowledge base - the MCP server (mcp-lightrag)
++ * for AI agents, or the LightRAG REST API for apps and scripts - with ready-to-copy examples.
++ */
++export default function ConnectPanel() {
++  const { t, i18n } = useTranslation()
++  const [channel, setChannel] = useState<'mcp' | 'rest'>('mcp')
++  const apiKey = useSettingsStore.use.apiKey()
++  const ragHealth = useBackendState.use.health()
++  const lang = i18n.language === 'th' ? 'th' : 'en'
++
++  const mcp = useMemo(mcpUrl, [])
++  const base = useMemo(restBase, [])
++  const mcpOk = useMcpReachable(mcp)
++  const rest = useMemo(() => restExamples(base, QUESTION[lang]), [base, lang])
++  const mcpEx = useMemo(() => mcpExamples(mcp), [mcp])
++  const [restLang, setRestLang] = useState(Object.keys(rest)[0])
++  const [mcpLang, setMcpLang] = useState(Object.keys(mcpEx)[0])
++
++  return (
++    <div className="flex h-full flex-col">
++      <div className="min-h-0 flex-1 overflow-y-auto px-3 pb-4">
++        <p className="text-muted-foreground mt-3 text-xs">{t('connect.intro')}</p>
++        <div className="mt-2">
++          <Tabs
++            items={[
++              { id: 'mcp', label: t('connect.mcpTab') },
++              { id: 'rest', label: t('connect.restTab') }
++            ]}
++            value={channel}
++            onChange={setChannel}
++          />
++        </div>
++
++        {channel === 'mcp' ? (
++          <>
++            <p className="mt-3 text-xs">{t('connect.mcpWhen')}</p>
++            <Label>{t('connect.endpoint')}</Label>
++            <Field value={mcp} />
++            <div className="text-muted-foreground mt-1 text-[0.7rem]">{t('connect.mcpTransport')}</div>
++            <Label>{t('connect.auth')}</Label>
++            <p className="text-xs">{t('connect.mcpAuth')}</p>
++            <Label>{t('connect.tools')}</Label>
++            <ul className="space-y-1 text-xs">
++              <li><code>lightrag_query</code> — {t('connect.toolQuery')}</li>
++              <li><code>lightrag_insert</code> — {t('connect.toolInsert')}</li>
++              <li><code>lightrag_list_documents</code> — {t('connect.toolList')}</li>
++              <li><code>lightrag_delete</code> — {t('connect.toolDelete')}</li>
++            </ul>
++            <Label>{t('connect.setup')}</Label>
++            <Tabs items={Object.keys(mcpEx).map((k) => ({ id: k, label: k }))} value={mcpLang} onChange={setMcpLang} />
++            <div className="mt-2">
++              <Code text={mcpEx[mcpLang]} />
++            </div>
++          </>
++        ) : (
++          <>
++            <p className="mt-3 text-xs">{t('connect.restWhen')}</p>
++            <Label>{t('connect.endpoint')}</Label>
++            <Field value={`${base}/query`} />
++            <div className="text-muted-foreground mt-1 text-[0.7rem]">POST · application/json</div>
++            <Label>{t('connect.key')}</Label>
++            {apiKey ? <Field value={mask(apiKey)} copy={apiKey} /> : <p className="text-xs">{t('connect.keyNone')}</p>}
++            <p className="text-muted-foreground mt-1 text-[0.7rem]">{t('connect.keyHint')}</p>
++            <Label>{t('connect.request')}</Label>
++            <Code
++              text={JSON.stringify(
++                {
++                  query: QUESTION[lang],
++                  mode: 'mix | hybrid | local | global | naive',
++                  include_references: true,
++                  conversation_history: [{ role: 'user', content: '…' }, { role: 'assistant', content: '…' }]
++                },
++                null,
++                2
++              )}
++            />
++            <Label>{t('connect.response')}</Label>
++            <Code text={JSON.stringify({ response: '…', references: [{ reference_id: '1', file_path: 'report.pdf' }] }, null, 2)} />
++            <p className="text-muted-foreground mt-1 text-[0.7rem]">{t('connect.stream')}</p>
++            <Label>{t('connect.examples')}</Label>
++            <Tabs items={Object.keys(rest).map((k) => ({ id: k, label: k }))} value={restLang} onChange={setRestLang} />
++            <div className="mt-2">
++              <Code text={rest[restLang]} />
++            </div>
++            <a
++              href={`${backendBaseUrl}/docs`}
++              target="_blank"
++              rel="noopener noreferrer"
++              className="mt-3 flex items-center gap-1 text-xs text-emerald-600 hover:underline"
++            >
++              <ExternalLinkIcon className="size-3" aria-hidden="true" />
++              {t('connect.docs')}
++            </a>
++          </>
++        )}
++      </div>
++      <div className="flex shrink-0 flex-col gap-1 border-t px-3 py-2">
++        <Dot state={ragHealth} label="LightRAG" />
++        <Dot state={mcpOk} label="MCP" />
++      </div>
++    </div>
++  )
++}
+diff --git a/lightrag_webui/src/features/kb/LanguageSwitch.tsx b/lightrag_webui/src/features/kb/LanguageSwitch.tsx
+new file mode 100644
+index 0000000..c73fa60
+--- /dev/null
++++ b/lightrag_webui/src/features/kb/LanguageSwitch.tsx
+@@ -0,0 +1,48 @@
++import { useCallback } from 'react'
++import { useTranslation } from 'react-i18next'
++import { useSettingsStore } from '@/stores/settings'
++import { cn } from '@/lib/utils'
++
++const LANGUAGES = [
++  { id: 'th', label: 'TH', name: 'ไทย' },
++  { id: 'en', label: 'EN', name: 'English' }
++] as const
++
++/** TH | EN switch of the knowledge-base layout (the only two UI languages of this build). */
++export default function LanguageSwitch({ className }: { className?: string }) {
++  const { t, i18n } = useTranslation()
++  const setLanguage = useSettingsStore.use.setLanguage()
++  const current = i18n.language === 'th' ? 'th' : 'en'
++
++  const choose = useCallback(
++    (id: 'th' | 'en') => {
++      i18n.changeLanguage(id)
++      setLanguage(id)
++    },
++    [i18n, setLanguage]
++  )
++
++  return (
++    <div role="group" aria-label={t('header.language')} className={cn('flex gap-1', className)}>
++      {LANGUAGES.map((l) => (
++        <button
++          key={l.id}
++          type="button"
++          lang={l.id}
++          title={l.name}
++          aria-label={`${l.label} (${l.name})`}
++          aria-pressed={current === l.id}
++          onClick={() => choose(l.id)}
++          className={cn(
++            'rounded-md border px-2.5 py-1 text-xs font-semibold transition-colors',
++            current === l.id
++              ? 'border-emerald-500 bg-emerald-500 text-white'
++              : 'border-border bg-background text-muted-foreground hover:bg-muted'
++          )}
++        >
++          {l.label}
++        </button>
++      ))}
++    </div>
++  )
++}
+diff --git a/lightrag_webui/src/features/kb/SideChat.tsx b/lightrag_webui/src/features/kb/SideChat.tsx
+new file mode 100644
+index 0000000..c0783c7
+--- /dev/null
++++ b/lightrag_webui/src/features/kb/SideChat.tsx
+@@ -0,0 +1,102 @@
++import { useCallback, useState } from 'react'
++import { useTranslation } from 'react-i18next'
++import type { QueryMode } from '@/api/lightrag'
++import { useQuerySettingsStore } from '@/stores/querySettings'
++import { createRetrievalHistoryStore } from '@/stores/retrievalHistory'
++import { storageKey } from '@/lib/storageKeys'
++import MessageList from '@/features/retrieval/MessageList'
++import QueryComposer from '@/features/retrieval/QueryComposer'
++import { useQuerySession } from '@/features/retrieval/useQuerySession'
++import { prepareQueryInput, SUPPORTED_QUERY_MODES } from '@/features/retrieval/queryInput'
++import { cn } from '@/lib/utils'
++
++/** The side chat keeps its own conversation, apart from the Retrieval tab. */
++const useSideChatHistoryStore = createRetrievalHistoryStore(storageKey('kb-side-chat-history'))
++const MODES: QueryMode[] = ['mix', 'hybrid', 'local', 'global', 'naive']
++const MODE_KEY = 'kb-side-chat-mode'
++
++function savedMode(): QueryMode {
++  try {
++    const m = localStorage.getItem(MODE_KEY) as QueryMode | null
++    if (m && MODES.includes(m)) return m
++  } catch {
++    /* ignore */
++  }
++  return 'mix'
++}
++
++/**
++ * Right panel: ask the knowledge base from any tab. It reuses the query session, message
++ * list and composer of the Retrieval tab, with the other query settings of that tab and
++ * only the search mode chosen here.
++ */
++export default function SideChat() {
++  const { t } = useTranslation()
++  const [mode, setMode] = useState<QueryMode>(savedMode)
++
++  const getQuerySettingsSnapshot = useCallback(
++    () => ({ ...useQuerySettingsStore.getState().querySettings, mode }),
++    [mode]
++  )
++
++  const session = useQuerySession({ historyStore: useSideChatHistoryStore, getQuerySettingsSnapshot })
++
++  const handleSend = useCallback(
++    (input: string): string | null => {
++      const prepared = prepareQueryInput(input, mode)
++      if (!prepared.ok) {
++        return t(`retrievePanel.retrieval.${prepared.error}`, { modes: SUPPORTED_QUERY_MODES.join(', ') })
++      }
++      void session.submitQuery(prepared.query, { modeOverride: prepared.modeOverride, displayedInput: input })
++      return null
++    },
++    [mode, session, t]
++  )
++
++  const chooseMode = useCallback((m: QueryMode) => {
++    setMode(m)
++    try {
++      localStorage.setItem(MODE_KEY, m)
++    } catch {
++      /* ignore */
++    }
++  }, [])
++
++  return (
++    <div className="flex h-full flex-col gap-2 p-2">
++      <div className="flex shrink-0 flex-wrap items-center gap-1">
++        <span className="text-muted-foreground mr-1 text-xs">{t('sideChat.mode')}</span>
++        {MODES.map((m) => (
++          <button
++            key={m}
++            type="button"
++            aria-pressed={mode === m}
++            onClick={() => chooseMode(m)}
++            className={cn(
++              'rounded-md border px-2 py-0.5 font-mono text-xs',
++              mode === m ? 'border-emerald-500 bg-emerald-500 text-white' : 'hover:bg-muted'
++            )}
++          >
++            {m}
++          </button>
++        ))}
++      </div>
++      <div className="flex min-h-0 flex-1 flex-col gap-2 [&_textarea]:text-sm">
++        <MessageList
++          messages={session.messages}
++          isLoading={session.isLoading}
++          queryProgress={session.queryProgress}
++          isActive={true}
++          emptyState={<div className="text-muted-foreground px-4 text-center text-sm">{t('sideChat.empty')}</div>}
++        />
++        <QueryComposer
++          isLoading={session.isLoading}
++          stopDisabled={session.stopDisabled}
++          onSend={handleSend}
++          onStop={session.handleStop}
++          onClear={session.clearMessages}
++        />
++      </div>
++    </div>
++  )
++}
+diff --git a/lightrag_webui/src/features/kb/SidePanel.tsx b/lightrag_webui/src/features/kb/SidePanel.tsx
+new file mode 100644
+index 0000000..d61a803
+--- /dev/null
++++ b/lightrag_webui/src/features/kb/SidePanel.tsx
+@@ -0,0 +1,89 @@
++import { useCallback, useState, type ReactNode } from 'react'
++import { useTranslation } from 'react-i18next'
++import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
++import { cn } from '@/lib/utils'
++
++interface SidePanelProps {
++  side: 'left' | 'right'
++  /** localStorage key that remembers whether the panel is open */
++  storageKey: string
++  title: string
++  icon: ReactNode
++  /** width when open, e.g. "w-[360px]" */
++  widthClass: string
++  children: ReactNode
++}
++
++function initialOpen(storageKey: string): boolean {
++  try {
++    const saved = localStorage.getItem(storageKey)
++    if (saved !== null) return saved === '1'
++  } catch {
++    /* private mode: fall through */
++  }
++  return typeof window === 'undefined' || window.innerWidth >= 1280
++}
++
++/**
++ * A side panel that folds into a narrow rail (title written vertically) and opens again
++ * with one click; the choice is remembered in this browser.
++ */
++export default function SidePanel({ side, storageKey, title, icon, widthClass, children }: SidePanelProps) {
++  const { t } = useTranslation()
++  const [open, setOpen] = useState(() => initialOpen(storageKey))
++
++  const toggle = useCallback(() => {
++    setOpen((o) => {
++      try {
++        localStorage.setItem(storageKey, o ? '0' : '1')
++      } catch {
++        /* ignore */
++      }
++      return !o
++    })
++  }, [storageKey])
++
++  const border = side === 'left' ? 'border-r' : 'border-l'
++  const FoldIcon = (side === 'left') === open ? ChevronLeftIcon : ChevronRightIcon
++
++  if (!open) {
++    return (
++      <aside className={cn('bg-muted/30 flex w-9 shrink-0 flex-col items-center', border)}>
++        <button
++          type="button"
++          onClick={toggle}
++          aria-expanded={false}
++          aria-label={t('panel.show', { name: title })}
++          title={t('panel.show', { name: title })}
++          className="hover:bg-muted flex w-full flex-1 flex-col items-center gap-3 py-3"
++        >
++          <FoldIcon className="size-4" aria-hidden="true" />
++          {icon}
++          <span className="text-muted-foreground text-xs font-semibold [writing-mode:vertical-rl]">{title}</span>
++        </button>
++      </aside>
++    )
++  }
++
++  return (
++    <aside className={cn('bg-background flex shrink-0 flex-col overflow-hidden', widthClass, border)}>
++      <div className="flex h-10 shrink-0 items-center justify-between gap-2 border-b px-3">
++        <span className="flex min-w-0 items-center gap-2 text-sm font-semibold">
++          {icon}
++          <span className="truncate">{title}</span>
++        </span>
++        <button
++          type="button"
++          onClick={toggle}
++          aria-expanded={true}
++          aria-label={t('panel.hide', { name: title })}
++          title={t('panel.hide', { name: title })}
++          className="hover:bg-muted rounded-md p-1"
++        >
++          <FoldIcon className="size-4" aria-hidden="true" />
++        </button>
++      </div>
++      <div className="min-h-0 flex-1">{children}</div>
++    </aside>
++  )
++}
+diff --git a/lightrag_webui/src/features/kb/TopBar.tsx b/lightrag_webui/src/features/kb/TopBar.tsx
+new file mode 100644
+index 0000000..4607b46
+--- /dev/null
++++ b/lightrag_webui/src/features/kb/TopBar.tsx
+@@ -0,0 +1,32 @@
++import { useTranslation } from 'react-i18next'
++import { useAuthStore } from '@/stores/state'
++import { entryHomeHref } from '@/lib/pathPrefix'
++import LanguageSwitch from '@/features/kb/LanguageSwitch'
++
++/**
++ * Top bar of the knowledge-base layout: the name of the page on the left (no logo, no
++ * navigation) and the TH | EN switch on the right. WEBUI_TITLE of the server, when set,
++ * is shown after the name (e.g. "Knowledge Base | Product manuals").
++ */
++export default function TopBar() {
++  const { t } = useTranslation()
++  const webuiTitle = useAuthStore((s) => s.webuiTitle)
++  const webuiDescription = useAuthStore((s) => s.webuiDescription)
++
++  return (
++    <header className="border-border/60 bg-background flex h-14 w-full shrink-0 items-center justify-between gap-4 border-b px-4">
++      <a
++        href={entryHomeHref(window.location.pathname)}
++        className="flex min-w-0 flex-col leading-snug"
++        title={webuiDescription || undefined}
++      >
++        <span className="truncate text-[1.05rem] font-bold">
++          {t('header.brandTitle')}
++          {webuiTitle && <span className="text-muted-foreground font-medium"> | {webuiTitle}</span>}
++        </span>
++        <span className="text-muted-foreground truncate text-xs">{t('header.brandSub')}</span>
++      </a>
++      <LanguageSwitch />
++    </header>
++  )
++}
+diff --git a/lightrag_webui/src/i18n.ts b/lightrag_webui/src/i18n.ts
+index 70d86f9..79f4af2 100644
+--- a/lightrag_webui/src/i18n.ts
++++ b/lightrag_webui/src/i18n.ts
+@@ -6,16 +6,7 @@ import { LEGACY_SETTINGS_STORAGE_KEY } from '@/lib/storageKeys'
+ import { getSettingsMigrationError } from '@/migrations/splitSettingsStorage'
+ 
+ import en from './locales/en.json'
+-import zh from './locales/zh.json'
+-import fr from './locales/fr.json'
+-import ar from './locales/ar.json'
+-import zh_TW from './locales/zh_TW.json'
+-import ru from './locales/ru.json'
+-import ja from './locales/ja.json'
+-import de from './locales/de.json'
+-import uk from './locales/uk.json'
+-import ko from './locales/ko.json'
+-import vi from './locales/vi.json'
++import th from './locales/th.json'
+ 
+ /**
+  * Language priority (workspace-entry PRD): explicit persisted choice >
+@@ -48,17 +39,8 @@ i18n
+   .use(initReactI18next)
+   .init({
+     resources: {
+-      en: { translation: en },
+-      zh: { translation: zh },
+-      fr: { translation: fr },
+-      ar: { translation: ar },
+-      zh_TW: { translation: zh_TW },
+-      ru: { translation: ru },
+-      ja: { translation: ja },
+-      de: { translation: de },
+-      uk: { translation: uk },
+-      ko: { translation: ko },
+-      vi: { translation: vi }
++      th: { translation: th },
++      en: { translation: en }
+     },
+     lng: initialLanguage, // Explicit choice, else browser language, else 'en'
+     fallbackLng: 'en',
+@@ -92,4 +74,11 @@ useSettingsStore.subscribe((state) => {
+   }
+ })
+ 
++// <html lang> follows the UI language (Thai line breaking and screen readers)
++const syncHtmlLang = (lng: string) => {
++  if (typeof document !== 'undefined') document.documentElement.lang = lng === 'th' ? 'th' : 'en'
++}
++syncHtmlLang(i18n.language)
++i18n.on('languageChanged', syncHtmlLang)
++
+ export default i18n
+diff --git a/lightrag_webui/src/index.css b/lightrag_webui/src/index.css
+index 5f3637d..f7bd02c 100644
+--- a/lightrag_webui/src/index.css
++++ b/lightrag_webui/src/index.css
+@@ -278,3 +278,9 @@ body > [id^="dmermaid-"] {
+   border-color: rgba(255, 0, 0, 0.4);
+   color: #ef4444;
+ }
++
++/* Knowledge-base build: Sarabun for Thai and Latin text */
++html,
++body {
++  font-family: 'Sarabun', ui-sans-serif, system-ui, sans-serif;
++}
+diff --git a/lightrag_webui/src/lib/browserLanguage.ts b/lightrag_webui/src/lib/browserLanguage.ts
+index ec8f83d..e4a8934 100644
+--- a/lightrag_webui/src/lib/browserLanguage.ts
++++ b/lightrag_webui/src/lib/browserLanguage.ts
+@@ -10,19 +10,8 @@
+ 
+ /** Internal ids of the UI locales — matches src/locales/*.json filenames and
+  * the settings store's Language union. */
+-export const SUPPORTED_UI_LANGUAGES = [
+-  'en',
+-  'zh',
+-  'fr',
+-  'ar',
+-  'zh_TW',
+-  'ru',
+-  'ja',
+-  'de',
+-  'uk',
+-  'ko',
+-  'vi'
+-] as const
++// Knowledge-base build: Thai and English only (TH | EN switch in the top bar)
++export const SUPPORTED_UI_LANGUAGES = ['th', 'en'] as const
+ 
+ export type SupportedUiLanguage = (typeof SUPPORTED_UI_LANGUAGES)[number]
+ 
+@@ -34,14 +23,6 @@ export function matchBrowserLanguageTag(tag: string): SupportedUiLanguage | null
+   const subtags = tag.trim().replace(/_/g, '-').toLowerCase().split('-').filter(Boolean)
+   if (subtags.length === 0) return null
+   const base = subtags[0]
+-  // Traditional-Chinese script/region subtags map onto zh_TW — the only
+-  // traditional variant the UI ships; other zh tags fall through to 'zh'.
+-  if (
+-    base === 'zh' &&
+-    subtags.slice(1).some((s) => s === 'hant' || s === 'tw' || s === 'hk' || s === 'mo')
+-  ) {
+-    return 'zh_TW'
+-  }
+   return SUPPORTED.has(base) ? (base as SupportedUiLanguage) : null
+ }
+ 
+diff --git a/lightrag_webui/src/lib/documentTitle.ts b/lightrag_webui/src/lib/documentTitle.ts
+index e2c30ce..d80a37f 100644
+--- a/lightrag_webui/src/lib/documentTitle.ts
++++ b/lightrag_webui/src/lib/documentTitle.ts
+@@ -41,7 +41,7 @@
+ import { getRuntimeWebuiTitle } from '@/lib/runtimeConfig'
+ 
+ /** Shown when the deployment sets no `WEBUI_TITLE`. Matches the entry HTML. */
+-export const DEFAULT_DOCUMENT_TITLE = 'LightRAG'
++export const DEFAULT_DOCUMENT_TITLE = 'คลังความรู้ (Knowledge Base)'  // knowledge-base build
+ 
+ const clean = (value: string | null | undefined): string => (value ?? '').trim()
+ 
+diff --git a/lightrag_webui/src/locales/en.json b/lightrag_webui/src/locales/en.json
+index ff04a3c..c7a46e8 100644
+--- a/lightrag_webui/src/locales/en.json
++++ b/lightrag_webui/src/locales/en.json
+@@ -19,7 +19,10 @@
+     "themeToggle": {
+       "switchToLight": "Switch to light theme",
+       "switchToDark": "Switch to dark theme"
+-    }
++    },
++    "brandTitle": "Knowledge Base",
++    "brandSub": "LightRAG: a retrieval-augmented generation system with a knowledge graph",
++    "language": "Language"
+   },
+   "login": {
+     "description": "Please enter your account and password to log in to the system",
+@@ -540,5 +543,46 @@
+   },
+   "retrievalHistory": {
+     "quotaDropped": "Browser storage is full: the chat history is no longer being saved. The current conversation stays visible until you leave the page."
++  },
++  "panel": {
++    "show": "Show {{name}}",
++    "hide": "Hide {{name}}"
++  },
++  "connect": {
++    "title": "Connect from outside",
++    "intro": "Other systems can use this knowledge base through two channels.",
++    "mcpTab": "MCP (AI agents)",
++    "restTab": "REST API (apps)",
++    "mcpWhen": "For AI agents that support MCP, such as Hermes, Claude or Cursor. The agent picks the tools by itself.",
++    "restWhen": "For your own apps and scripts: send a question and get the answer with its references.",
++    "endpoint": "Endpoint",
++    "mcpTransport": "Streamable HTTP · POST",
++    "auth": "Authentication",
++    "mcpAuth": "Only when MCP_AUTH_TOKEN is set on the server: send the header Authorization: Bearer <MCP_AUTH_TOKEN>.",
++    "tools": "Tools",
++    "toolQuery": "ask the knowledge base",
++    "toolInsert": "add a text to the knowledge base",
++    "toolList": "list the documents",
++    "toolDelete": "delete documents (only with ENABLE_DELETE=true)",
++    "setup": "Client setup",
++    "key": "API key",
++    "keyHint": "Send it in the X-API-Key header. It is the LIGHTRAG_API_KEY set on the server.",
++    "keyNone": "No key entered in this browser yet",
++    "request": "Request (JSON)",
++    "response": "Response (JSON)",
++    "stream": "For an answer that arrives piece by piece, use POST /query/stream (NDJSON: one JSON object per line).",
++    "examples": "Examples",
++    "docs": "All endpoints (API documentation)",
++    "copy": "Copy",
++    "copied": "Copied",
++    "status": "Status",
++    "online": "ready",
++    "offline": "not responding",
++    "checking": "checking"
++  },
++  "sideChat": {
++    "title": "Ask the knowledge base",
++    "mode": "Search mode",
++    "empty": "Type a question below to start."
+   }
+ }
+diff --git a/lightrag_webui/src/locales/th.json b/lightrag_webui/src/locales/th.json
+new file mode 100644
+index 0000000..03fa07a
+--- /dev/null
++++ b/lightrag_webui/src/locales/th.json
+@@ -0,0 +1,588 @@
++{
++  "settings": {
++    "language": "ภาษา",
++    "theme": "ธีม",
++    "light": "สว่าง",
++    "dark": "มืด",
++    "system": "ตามระบบ"
++  },
++  "header": {
++    "documents": "เอกสาร",
++    "knowledgeGraph": "กราฟความรู้",
++    "retrieval": "การสืบค้น",
++    "apiDocs": "เอกสารอินเทอร์เฟซโปรแกรมประยุกต์ (API)",
++    "projectRepository": "ที่เก็บโครงการ",
++    "appSettings": "การตั้งค่า",
++    "deploymentInfo": "ข้อมูลการติดตั้งใช้งาน",
++    "logout": "ออกจากระบบ",
++    "frontendNeedsRebuild": "ส่วนหน้าจอต้องสร้างใหม่",
++    "themeToggle": {
++      "switchToLight": "เปลี่ยนเป็นธีมสว่าง",
++      "switchToDark": "เปลี่ยนเป็นธีมมืด"
++    },
++    "brandTitle": "คลังความรู้",
++    "brandSub": "LightRAG: ระบบสร้างคำตอบจากการค้นคืนข้อมูลและกราฟความรู้",
++    "language": "ภาษา"
++  },
++  "login": {
++    "description": "กรุณากรอกบัญชีผู้ใช้และรหัสผ่านเพื่อเข้าสู่ระบบ",
++    "username": "ชื่อผู้ใช้",
++    "usernamePlaceholder": "กรุณากรอกชื่อผู้ใช้",
++    "password": "รหัสผ่าน",
++    "passwordPlaceholder": "กรุณากรอกรหัสผ่าน",
++    "loginButton": "เข้าสู่ระบบ",
++    "loggingIn": "กำลังเข้าสู่ระบบ...",
++    "successMessage": "เข้าสู่ระบบสำเร็จ",
++    "errorEmptyFields": "กรุณากรอกชื่อผู้ใช้และรหัสผ่าน",
++    "errorInvalidCredentials": "เข้าสู่ระบบไม่สำเร็จ กรุณาตรวจสอบชื่อผู้ใช้และรหัสผ่าน",
++    "authDisabled": "การยืนยันตัวตนถูกปิดอยู่ ใช้งานในโหมดไม่ต้องเข้าสู่ระบบ",
++    "guestMode": "ไม่ต้องเข้าสู่ระบบ",
++    "consentLabel": "ข้าพเจ้ายอมรับ{{documents}}",
++    "consentDocuments": "ข้อตกลงนโยบายความเป็นส่วนตัว",
++    "errorConsentRequired": "กรุณาอ่านและยอมรับข้อตกลงก่อนเข้าสู่ระบบ"
++  },
++  "common": {
++    "cancel": "ยกเลิก",
++    "save": "บันทึก",
++    "saving": "กำลังบันทึก...",
++    "saveFailed": "บันทึกไม่สำเร็จ",
++    "errorBoundaryTitle": "เกิดข้อผิดพลาด",
++    "errorBoundaryDescription": "ไม่สามารถแสดงแผงนี้ได้ กรุณาลองใหม่ หรือสลับไปแท็บอื่น",
++    "errorBoundaryRetry": "ลองใหม่"
++  },
++  "documentPanel": {
++    "clearDocuments": {
++      "button": "ล้าง",
++      "tooltip": "ล้างเอกสาร",
++      "title": "ล้างเอกสาร",
++      "description": "การดำเนินการนี้จะลบเอกสารทั้งหมดออกจากระบบ",
++      "warning": "คำเตือน: การดำเนินการนี้จะลบเอกสารทั้งหมดอย่างถาวรและไม่สามารถกู้คืนได้",
++      "confirm": "ต้องการล้างเอกสารทั้งหมดจริงหรือไม่",
++      "confirmPrompt": "พิมพ์ 'yes' เพื่อยืนยันการดำเนินการนี้",
++      "confirmPlaceholder": "พิมพ์ yes เพื่อยืนยัน",
++      "clearCache": "ล้างแคชของแบบจำลองภาษาขนาดใหญ่ (LLM)",
++      "confirmButton": "ยืนยัน",
++      "clearing": "กำลังล้าง...",
++      "timeout": "การล้างใช้เวลานานเกินกำหนด กรุณาลองใหม่",
++      "success": "ล้างเอกสารสำเร็จ",
++      "cacheCleared": "ล้างแคชสำเร็จ",
++      "cacheClearFailed": "ล้างแคชไม่สำเร็จ:\n{{error}}",
++      "failed": "ล้างเอกสารไม่สำเร็จ:\n{{message}}",
++      "error": "ล้างเอกสารไม่สำเร็จ:\n{{error}}"
++    },
++    "deleteDocuments": {
++      "button": "ลบ",
++      "tooltip": "ลบเอกสารที่เลือก",
++      "title": "ลบเอกสาร",
++      "description": "การดำเนินการนี้จะลบเอกสารที่เลือกออกจากระบบอย่างถาวร",
++      "warning": "คำเตือน: การดำเนินการนี้จะลบเอกสารที่เลือกอย่างถาวรและไม่สามารถกู้คืนได้",
++      "confirm": "ต้องการลบเอกสารที่เลือก {{count}} รายการจริงหรือไม่",
++      "confirmPrompt": "พิมพ์ 'yes' เพื่อยืนยันการดำเนินการนี้",
++      "confirmPlaceholder": "พิมพ์ yes เพื่อยืนยัน",
++      "confirmButton": "ยืนยัน",
++      "deleteFileOption": "ลบไฟล์ที่อัปโหลดด้วย",
++      "deleteFileTooltip": "เลือกตัวเลือกนี้เพื่อลบไฟล์ที่อัปโหลดไว้บนเซิร์ฟเวอร์ซึ่งตรงกับเอกสารด้วย",
++      "deleteLLMCacheOption": "ลบแคชที่สกัดจากแบบจำลองภาษาขนาดใหญ่ (LLM) ด้วย",
++      "success": "เริ่มกระบวนการลบเอกสารแล้ว",
++      "failed": "ลบเอกสารไม่สำเร็จ:\n{{message}}",
++      "error": "ลบเอกสารไม่สำเร็จ:\n{{error}}",
++      "busy": "ท่อประมวลผลกำลังทำงานอยู่ กรุณาลองใหม่ภายหลัง",
++      "notAllowed": "ไม่มีสิทธิ์ดำเนินการนี้"
++    },
++    "selectDocuments": {
++      "selectCurrentPage": "เลือกทั้งหน้านี้ ({{count}})",
++      "deselectAll": "ยกเลิกการเลือกทั้งหมด ({{count}})"
++    },
++    "uploadDocuments": {
++      "button": "อัปโหลด",
++      "tooltip": "อัปโหลดเอกสาร",
++      "title": "อัปโหลดเอกสาร",
++      "description": "ลากเอกสารมาวางที่นี่ หรือคลิกเพื่อเลือกไฟล์",
++      "single": {
++        "uploading": "กำลังอัปโหลด {{name}}: {{percent}}%",
++        "success": "อัปโหลดสำเร็จ:\nอัปโหลด {{name}} เรียบร้อยแล้ว",
++        "failed": "อัปโหลดไม่สำเร็จ:\n{{name}}\n{{message}}",
++        "error": "อัปโหลดไม่สำเร็จ:\n{{name}}\n{{error}}"
++      },
++      "batch": {
++        "uploading": "กำลังอัปโหลดไฟล์...",
++        "success": "อัปโหลดไฟล์สำเร็จ",
++        "error": "อัปโหลดบางไฟล์ไม่สำเร็จ"
++      },
++      "generalError": "อัปโหลดไม่สำเร็จ\n{{error}}",
++      "fileTypes": "ชนิดไฟล์ที่รองรับ: {{types}}",
++      "fileUploader": {
++        "singleFileLimit": "อัปโหลดได้ครั้งละ 1 ไฟล์เท่านั้น",
++        "maxFilesLimit": "อัปโหลดได้ไม่เกิน {{count}} ไฟล์",
++        "fileRejected": "ไฟล์ {{name}} ถูกปฏิเสธ",
++        "unsupportedType": "ไม่รองรับชนิดไฟล์นี้",
++        "fileTooLarge": "ไฟล์มีขนาดใหญ่เกินไป ขนาดสูงสุดคือ {{maxSize}}",
++        "dropHere": "วางไฟล์ที่นี่",
++        "dragAndDrop": "ลากไฟล์มาวางที่นี่ หรือคลิกเพื่อเลือกไฟล์",
++        "removeFile": "ลบไฟล์ออก",
++        "uploadDescription": "สามารถอัปโหลดได้หลายไฟล์ (ไฟล์ละไม่เกิน {{maxSize}}) ",
++        "duplicateFile": "ชื่อไฟล์นี้มีอยู่แล้วในแคชของเซิร์ฟเวอร์"
++      }
++    },
++    "documentManager": {
++      "title": "การจัดการเอกสาร",
++      "scanButton": "สแกน/ลองใหม่",
++      "scanTooltip": "สแกนและประมวลผลเอกสารในโฟลเดอร์นำเข้า และประมวลผลเอกสารที่ล้มเหลวทั้งหมดซ้ำ",
++      "refreshTooltip": "รีเซ็ตรายการเอกสาร",
++      "pipelineStatusButton": "ท่อประมวลผล",
++      "pipelineStatusTooltip": "ดูสถานะท่อประมวลผลเอกสาร",
++      "uploadedTitle": "เอกสารที่อัปโหลดแล้ว",
++      "uploadedDescription": "รายการเอกสารที่อัปโหลดและสถานะของเอกสาร",
++      "loading": "กำลังโหลดเอกสาร...",
++      "loadErrorTitle": "ไม่สามารถโหลดเอกสารได้",
++      "retry": "ลองใหม่",
++      "emptyTitle": "ไม่มีเอกสาร",
++      "emptyDescription": "ยังไม่มีเอกสารที่อัปโหลด",
++      "columns": {
++        "id": "รหัส",
++        "fileName": "ชื่อไฟล์",
++        "summary": "สรุป",
++        "status": "สถานะ",
++        "length": "ความยาว",
++        "chunks": "ส่วนข้อความ",
++        "created": "สร้างเมื่อ",
++        "updated": "ปรับปรุงเมื่อ",
++        "metadata": "ข้อมูลกำกับ",
++        "select": "เลือก"
++      },
++      "filters": {
++        "all": "ทั้งหมด",
++        "completed": "เสร็จสมบูรณ์",
++        "parse": "กำลังแยกวิเคราะห์",
++        "analyze": "กำลังวิเคราะห์",
++        "process": "กำลังประมวลผล",
++        "failed": "ล้มเหลว"
++      },
++      "status": {
++        "all": "ทั้งหมด",
++        "completed": "เสร็จสมบูรณ์",
++        "preprocessed": "ประมวลผลเบื้องต้นแล้ว",
++        "parsing": "กำลังแยกวิเคราะห์",
++        "analyzing": "กำลังวิเคราะห์",
++        "processing": "กำลังประมวลผล",
++        "pending": "รอดำเนินการ",
++        "failed": "ล้มเหลว"
++      },
++      "errors": {
++        "loadFailed": "โหลดเอกสารไม่สำเร็จ\n{{error}}",
++        "scanFailed": "สแกนเอกสารไม่สำเร็จ\n{{error}}",
++        "scanProgressFailed": "ดึงความคืบหน้าการสแกนไม่สำเร็จ\n{{error}}"
++      },
++      "fileNameLabel": "ชื่อไฟล์",
++      "showButton": "แสดง",
++      "hideButton": "ซ่อน",
++      "showFileNameTooltip": "แสดงชื่อไฟล์",
++      "hideFileNameTooltip": "ซ่อนชื่อไฟล์",
++      "details": {
++        "title": "รายละเอียดสถานะ",
++        "openTooltip": "ดูรายละเอียดสถานะ",
++        "content": "รายละเอียด",
++        "copyButton": "คัดลอก",
++        "copyTooltip": "คัดลอกรายละเอียดสถานะ",
++        "copySuccess": "คัดลอกรายละเอียดสถานะแล้ว",
++        "copyFailed": "คัดลอกรายละเอียดสถานะไม่สำเร็จ"
++      }
++    },
++    "pipelineStatus": {
++      "title": "สถานะท่อประมวลผล",
++      "busy": "ท่อประมวลผลกำลังทำงาน",
++      "cancellationRequested": "มีการร้องขอให้ยกเลิก",
++      "jobName": "ชื่องาน",
++      "startTime": "เวลาเริ่มต้น",
++      "progress": "ความคืบหน้า",
++      "unit": "ชุด",
++      "pipelineMessages": "ข้อความจากท่อประมวลผล",
++      "cancelButton": "ยกเลิก",
++      "cancelTooltip": "ยกเลิกการประมวลผลของท่อประมวลผล",
++      "cancelConfirmTitle": "ยืนยันการยกเลิกท่อประมวลผล",
++      "cancelConfirmDescription": "การดำเนินการนี้จะขัดจังหวะการประมวลผลที่กำลังทำงานอยู่ ต้องการดำเนินการต่อหรือไม่",
++      "cancelConfirmButton": "ยืนยันการยกเลิก",
++      "cancelInProgress": "กำลังยกเลิก...",
++      "pipelineNotRunning": "ท่อประมวลผลไม่ได้ทำงานอยู่",
++      "cancelSuccess": "ส่งคำร้องขอยกเลิกท่อประมวลผลแล้ว",
++      "cancelFailed": "ยกเลิกท่อประมวลผลไม่สำเร็จ\n{{error}}",
++      "cancelNotBusy": "ท่อประมวลผลไม่ได้ทำงานอยู่ ไม่จำเป็นต้องยกเลิก",
++      "errors": {
++        "fetchFailed": "ดึงสถานะท่อประมวลผลไม่สำเร็จ\n{{error}}"
++      }
++    }
++  },
++  "graphPanel": {
++    "dataIsTruncated": "ข้อมูลกราฟถูกตัดให้เหลือตามจำนวนโหนดสูงสุด",
++    "fetchRetriesExhausted": "โหลดข้อมูลกราฟไม่สำเร็จ กรุณากดรีเฟรชเพื่อลองใหม่",
++    "graphBuildFailed": "แสดงผลข้อมูลกราฟไม่สำเร็จ กรุณากดรีเฟรชเพื่อลองใหม่",
++    "statusDialog": {
++      "title": "การตั้งค่าเซิร์ฟเวอร์ LightRAG",
++      "description": "ดูสถานะระบบปัจจุบันและข้อมูลการเชื่อมต่อ"
++    },
++    "legend": "คำอธิบายสัญลักษณ์",
++    "nodeTypes": {
++      "person": "บุคคล",
++      "category": "หมวดหมู่",
++      "geo": "ภูมิศาสตร์",
++      "location": "สถานที่",
++      "organization": "องค์กร",
++      "event": "เหตุการณ์",
++      "equipment": "อุปกรณ์",
++      "weapon": "อาวุธ",
++      "animal": "สัตว์",
++      "unknown": "ไม่ทราบ",
++      "object": "วัตถุ",
++      "group": "กลุ่ม",
++      "technology": "เทคโนโลยี",
++      "product": "ผลิตภัณฑ์",
++      "document": "เอกสาร",
++      "content": "เนื้อหา",
++      "data": "ข้อมูล",
++      "artifact": "สิ่งประดิษฐ์",
++      "concept": "แนวคิด",
++      "naturalobject": "วัตถุตามธรรมชาติ",
++      "method": "วิธีการ",
++      "creature": "สิ่งมีชีวิต",
++      "plant": "พืช",
++      "disease": "โรค",
++      "drug": "ยา",
++      "food": "อาหาร",
++      "table": "ตาราง",
++      "drawing": "ภาพวาด",
++      "equation": "สมการ",
++      "other": "อื่น ๆ"
++    },
++    "sideBar": {
++      "settings": {
++        "settings": "การตั้งค่า",
++        "healthCheck": "ตรวจสอบสถานะ",
++        "showPropertyPanel": "แสดงแผงคุณสมบัติ",
++        "showSearchBar": "แสดงแถบค้นหา",
++        "showNodeLabel": "แสดงป้ายชื่อโหนด",
++        "nodeDraggable": "ลากโหนดได้",
++        "showEdgeLabel": "แสดงป้ายชื่อเส้นเชื่อม",
++        "hideUnselectedEdges": "ซ่อนเส้นเชื่อมที่ไม่ได้เลือก",
++        "edgeEvents": "เหตุการณ์ของเส้นเชื่อม",
++        "edgeEventsDisabledHint": "ปิดใช้งานสำหรับกราฟที่มีเส้นเชื่อมมากกว่า {{count}} เส้น",
++        "maxQueryDepth": "ความลึกการสืบค้นสูงสุด",
++        "maxNodes": "จำนวนโหนดสูงสุด",
++        "resetToDefault": "คืนค่าเริ่มต้น",
++        "edgeSizeRange": "ช่วงขนาดเส้นเชื่อม",
++        "depth": "ลึก",
++        "node": "โหนด",
++        "edge": "เส้นเชื่อม",
++        "degree": "ดีกรี",
++        "apiKey": "คีย์ API",
++        "enterYourAPIkey": "กรอกคีย์ API",
++        "save": "บันทึก",
++        "refreshLayout": "จัดวางใหม่"
++      },
++      "zoomControl": {
++        "zoomIn": "ขยาย",
++        "zoomOut": "ย่อ",
++        "resetZoom": "รีเซ็ตการซูม",
++        "rotateCamera": "หมุนตามเข็มนาฬิกา",
++        "rotateCameraCounterClockwise": "หมุนทวนเข็มนาฬิกา"
++      },
++      "layoutsControl": {
++        "startAnimation": "เล่นภาพเคลื่อนไหวการจัดวางต่อ",
++        "stopAnimation": "หยุดภาพเคลื่อนไหวการจัดวาง",
++        "layoutGraph": "จัดวางกราฟ",
++        "layouts": {
++          "Circular": "วงกลม",
++          "Circlepack": "บรรจุวงกลม",
++          "Random": "สุ่ม",
++          "Noverlaps": "ไม่ซ้อนทับ",
++          "Force Directed": "แรงผลัก-ดึง",
++          "Force Atlas": "ฟอร์ซแอตลาส"
++        }
++      },
++      "fullScreenControl": {
++        "fullScreen": "เต็มหน้าจอ",
++        "windowed": "แบบหน้าต่าง"
++      },
++      "legendControl": {
++        "toggleLegend": "สลับการแสดงคำอธิบายสัญลักษณ์"
++      }
++    },
++    "statusIndicator": {
++      "connected": "เชื่อมต่อแล้ว",
++      "disconnected": "ขาดการเชื่อมต่อ"
++    },
++    "statusCard": {
++      "unavailable": "ไม่มีข้อมูลสถานะ",
++      "serverInfo": "ข้อมูลเซิร์ฟเวอร์",
++      "inputDirectory": "โฟลเดอร์นำเข้า",
++      "parser": "ตัวแยกวิเคราะห์เอกสาร",
++      "mineru": "MinerU",
++      "docling": "Docling",
++      "otherSettings": "การตั้งค่าอื่น ๆ",
++      "llmConfig": "การตั้งค่าแบบจำลอง",
++      "llmBinding": "ผู้ให้บริการแบบจำลองภาษา (LLM)",
++      "llmBindingHost": "ปลายทางแบบจำลองภาษา (LLM)",
++      "llmModel": "แบบจำลองภาษา (LLM)",
++      "embeddingConfig": "การตั้งค่าการฝังข้อมูลเชิงเวกเตอร์ (Embedding)",
++      "embeddingBinding": "ผู้ให้บริการ Embedding",
++      "embeddingBindingHost": "ปลายทาง Embedding",
++      "embeddingModel": "แบบจำลอง Embedding",
++      "storageConfig": "การตั้งค่าที่เก็บข้อมูล",
++      "kvStorage": "ที่เก็บข้อมูลคีย์-ค่า (KV)",
++      "docStatusStorage": "ที่เก็บสถานะเอกสาร",
++      "graphStorage": "ที่เก็บกราฟ",
++      "vectorStorage": "ที่เก็บเวกเตอร์",
++      "workspace": "พื้นที่ทำงาน",
++      "rerankerConfig": "การตั้งค่าตัวจัดอันดับใหม่ (Reranker)",
++      "rerankerBindingHost": "ปลายทาง Reranker",
++      "rerankerModel": "แบบจำลอง Reranker",
++      "lockStatus": "สถานะการล็อก"
++    },
++    "propertiesView": {
++      "editProperty": "แก้ไข {{property}}",
++      "editLockedByPipeline": "ท่อประมวลผลกำลังทำงาน ไม่สามารถแก้ไขได้",
++      "editPropertyDescription": "แก้ไขค่าคุณสมบัติในช่องข้อความด้านล่าง",
++      "errors": {
++        "duplicateName": "มีชื่อโหนดนี้อยู่แล้ว",
++        "invalidEntityName": "กรุณากรอกชื่อโหนดที่ถูกต้อง",
++        "updateFailed": "ปรับปรุงโหนดไม่สำเร็จ",
++        "tryAgainLater": "กรุณาลองใหม่ภายหลัง",
++        "updateSuccessButMergeFailed": "ปรับปรุงคุณสมบัติแล้ว แต่รวมโหนดไม่สำเร็จ: {{error}}",
++        "mergeFailed": "รวมโหนดไม่สำเร็จ: {{error}}"
++      },
++      "success": {
++        "entityUpdated": "ปรับปรุงโหนดสำเร็จ",
++        "relationUpdated": "ปรับปรุงความสัมพันธ์สำเร็จ",
++        "entityMerged": "รวมโหนดสำเร็จ"
++      },
++      "mergeOptionLabel": "รวมโดยอัตโนมัติเมื่อพบชื่อซ้ำ",
++      "mergeOptionDescription": "หากเปิดใช้งาน การเปลี่ยนชื่อเป็นชื่อที่มีอยู่แล้วจะรวมโหนดนี้เข้ากับโหนดเดิม แทนที่จะล้มเหลว",
++      "mergeDialog": {
++        "title": "รวมโหนดแล้ว",
++        "description": "รวม \"{{source}}\" เข้ากับ \"{{target}}\" แล้ว",
++        "refreshHint": "กรุณารีเฟรชกราฟเพื่อโหลดโครงสร้างล่าสุด",
++        "keepCurrentStart": "รีเฟรชและคงโหนดเริ่มต้นเดิม",
++        "useMergedStart": "รีเฟรชและใช้โหนดที่รวมแล้ว",
++        "refreshing": "กำลังรีเฟรชกราฟ..."
++      },
++      "node": {
++        "title": "โหนด",
++        "id": "รหัส",
++        "labels": "ป้ายกำกับ",
++        "degree": "ดีกรี",
++        "properties": "คุณสมบัติ",
++        "relationships": "ความสัมพันธ์ (ภายในกราฟย่อย)",
++        "expandNode": "ขยายโหนด",
++        "pruneNode": "ซ่อนโหนด",
++        "deleteAllNodesError": "ไม่อนุญาตให้ลบโหนดทั้งหมดในกราฟ",
++        "nodesRemoved": "นำโหนดออก {{count}} โหนด รวมถึงโหนดที่ไม่มีการเชื่อมโยง",
++        "noNewNodes": "ไม่พบโหนดที่ขยายได้",
++        "propertyNames": {
++          "description": "คำอธิบาย",
++          "entity_id": "ชื่อ",
++          "entity_type": "ประเภท",
++          "source_id": "รหัสส่วนข้อความ",
++          "Neighbour": "เพื่อนบ้าน",
++          "file_path": "ไฟล์",
++          "keywords": "คำสำคัญ",
++          "weight": "น้ำหนัก"
++        }
++      },
++      "edge": {
++        "title": "ความสัมพันธ์",
++        "id": "รหัส",
++        "type": "ประเภท",
++        "source": "ต้นทาง",
++        "target": "ปลายทาง",
++        "properties": "คุณสมบัติ"
++      }
++    },
++    "search": {
++      "placeholder": "ค้นหาโหนดในหน้านี้...",
++      "message": "และอีก {{count}} รายการ"
++    },
++    "graphLabels": {
++      "selectTooltip": "ดึงกราฟย่อยของโหนด (ป้ายกำกับ)",
++      "noLabels": "ไม่พบโหนดที่ตรงกัน",
++      "label": "ค้นหาชื่อโหนด",
++      "placeholder": "ค้นหาชื่อโหนด...",
++      "andOthers": "และอีก {{count}} รายการ",
++      "refreshGlobalTooltip": "รีเฟรชข้อมูลกราฟทั้งหมดและล้างประวัติการค้นหา",
++      "refreshCurrentLabelTooltip": "รีเฟรชข้อมูลกราฟของหน้าปัจจุบัน",
++      "refreshingTooltip": "กำลังรีเฟรชข้อมูล..."
++    },
++    "emptyGraph": "ว่างเปล่า (ลองโหลดใหม่อีกครั้ง)"
++  },
++  "retrievePanel": {
++    "chatMessage": {
++      "aiContentNotice": "เนื้อหาที่สร้างโดยปัญญาประดิษฐ์ — กรุณาตรวจสอบความถูกต้อง",
++      "copyTooltip": "คัดลอกไปยังคลิปบอร์ด",
++      "copyError": "คัดลอกข้อความไปยังคลิปบอร์ดไม่สำเร็จ",
++      "copyEmpty": "ไม่มีเนื้อหาให้คัดลอก",
++      "copySuccess": "คัดลอกเนื้อหาไปยังคลิปบอร์ดแล้ว",
++      "copySuccessLegacy": "คัดลอกเนื้อหาแล้ว (วิธีเดิม)",
++      "copySuccessManual": "คัดลอกเนื้อหาแล้ว (วิธีกำหนดเอง)",
++      "copyFailed": "คัดลอกเนื้อหาไม่สำเร็จ",
++      "copyManualInstruction": "กรุณาเลือกและคัดลอกข้อความด้วยตนเอง",
++      "thinking": "กำลังคิด...",
++      "thinkingTime": "เวลาคิด {{time}} วินาที",
++      "thinkingInProgress": "กำลังคิดอยู่...",
++      "responseTime": "เวลาตอบ {{time}} วินาที",
++      "firstTokenTime": "โทเค็นแรก {{time}} วินาที",
++      "progress": {
++        "extracting_keywords": "กำลังสกัดคำสำคัญ...",
++        "retrieving_entities": "กำลังสืบค้นเอนทิตี...",
++        "retrieving_relations": "กำลังสืบค้นความสัมพันธ์...",
++        "retrieving_chunks": "กำลังสืบค้นส่วนข้อความ...",
++        "reranking": "กำลังจัดอันดับผลลัพธ์ใหม่...",
++        "generating_response": "กำลังสร้างคำตอบ..."
++      }
++    },
++    "retrieval": {
++      "startPrompt": "เริ่มการสืบค้นโดยพิมพ์คำถามด้านล่าง",
++      "scrollToBottom": "เลื่อนไปล่าสุด",
++      "clear": "ล้าง",
++      "send": "ส่ง",
++      "stop": "หยุด",
++      "userTerminated": "ผู้ใช้ยุติการทำงาน — คำตอบอาจไม่สมบูรณ์",
++      "placeholder": "พิมพ์คำถาม (รองรับคำนำหน้า: /<โหมดการสืบค้น>)",
++      "error": "ข้อผิดพลาด: ไม่สามารถรับคำตอบได้",
++      "queryModeError": "รองรับเฉพาะโหมดการสืบค้นต่อไปนี้: {{modes}}",
++      "queryModePrefixInvalid": "คำนำหน้าโหมดการสืบค้นไม่ถูกต้อง ใช้รูปแบบ: /<โหมด> [เว้นวรรค] คำถามของท่าน",
++      "queryEmpty": "กรุณาพิมพ์คำถามก่อนส่ง",
++      "queryTooShort": "คำถามสั้นเกินไป กรุณาพิมพ์อย่างน้อย 3 ตัวอักษรภาษาอังกฤษหรือเทียบเท่า โดยอักษรจีน ญี่ปุ่น และเกาหลีแต่ละตัวนับเป็น 2",
++      "dismissError": "ปิดข้อความข้อผิดพลาด"
++    },
++    "querySettings": {
++      "parametersTitle": "พารามิเตอร์",
++      "parametersDescription": "กำหนดพารามิเตอร์การสืบค้น",
++      "parametersScopeNotice": "มีผลกับการสืบค้นจากเบราว์เซอร์นี้",
++      "parametersScopeTooltip": "พารามิเตอร์เหล่านี้ถูกบันทึกไว้ในเบราว์เซอร์นี้และมีผลต่อไปจนกว่าจะเปลี่ยนแปลง การสืบค้นที่ส่งจากทางเข้า /workspace ที่เปิดในเบราว์เซอร์นี้ก็ใช้ค่าเดียวกัน ค่าเหล่านี้เป็นสถานะภายในของแต่ละเบราว์เซอร์ ไม่ใช่นโยบายของเซิร์ฟเวอร์ทั้งระบบ เบราว์เซอร์และอุปกรณ์อื่นจึงไม่ได้รับผลกระทบ",
++      "parametersScopeHelpLabel": "เกี่ยวกับขอบเขตของพารามิเตอร์",
++      "queryMode": "โหมดการสืบค้น",
++      "queryModeTooltip": "เลือกกลยุทธ์การสืบค้น:\n• Naive: สืบค้นเวกเตอร์ของส่วนข้อความแบบดั้งเดิม\n• Local: เน้นการสืบค้นเอนทิตี\n• Global: เน้นการสืบค้นความสัมพันธ์\n• Hybrid: Local + Global\n• Mix: Local + Global + Naive\n• Bypass: ข้ามการสืบค้น ส่งประวัติการสนทนาและคำถามปัจจุบันให้แบบจำลองภาษาโดยตรง",
++      "queryModeWarning": "อาจทำให้คุณภาพการสืบค้นลดลง",
++      "queryModeOptions": {
++        "naive": "Naive",
++        "local": "Local",
++        "global": "Global",
++        "hybrid": "Hybrid",
++        "mix": "Mix",
++        "bypass": "Bypass"
++      },
++      "responseFormat": "รูปแบบคำตอบ",
++      "responseFormatTooltip": "กำหนดรูปแบบของคำตอบ เช่น\n• หลายย่อหน้า\n• ย่อหน้าเดียว\n• หัวข้อย่อยแบบจุด",
++      "responseFormatOptions": {
++        "multipleParagraphs": "หลายย่อหน้า",
++        "singleParagraph": "ย่อหน้าเดียว",
++        "bulletPoints": "หัวข้อย่อยแบบจุด"
++      },
++      "topK": "KG Top K",
++      "topKTooltip": "จำนวนเอนทิตีและความสัมพันธ์ที่จะสืบค้น ใช้กับโหมดที่ไม่ใช่ Naive",
++      "topKPlaceholder": "กรอกค่า top_k",
++      "chunkTopK": "Chunk Top K",
++      "chunkTopKTooltip": "จำนวนส่วนข้อความที่จะสืบค้น ใช้กับทุกโหมด",
++      "chunkTopKPlaceholder": "กรอกค่า chunk_top_k",
++      "maxEntityTokens": "โทเค็นเอนทิตีสูงสุด",
++      "maxEntityTokensTooltip": "จำนวนโทเค็นสูงสุดที่จัดสรรให้บริบทของเอนทิตีในระบบควบคุมโทเค็นแบบรวม",
++      "maxRelationTokens": "โทเค็นความสัมพันธ์สูงสุด",
++      "maxRelationTokensTooltip": "จำนวนโทเค็นสูงสุดที่จัดสรรให้บริบทของความสัมพันธ์ในระบบควบคุมโทเค็นแบบรวม",
++      "maxTotalTokens": "โทเค็นรวมสูงสุด",
++      "maxTotalTokensTooltip": "งบประมาณโทเค็นรวมสูงสุดของบริบทการสืบค้นทั้งหมด (เอนทิตี + ความสัมพันธ์ + ส่วนข้อความ + คำสั่งระบบ)",
++      "historyTurns": "จำนวนรอบประวัติ",
++      "historyTurnsTooltip": "จำนวนรอบการสนทนาที่สมบูรณ์ (คู่ผู้ใช้-ผู้ช่วย) ที่นำมาพิจารณาในบริบทของคำตอบ",
++      "historyTurnsPlaceholder": "จำนวนรอบประวัติ",
++      "onlyNeedContext": "ต้องการเฉพาะบริบท",
++      "onlyNeedContextTooltip": "หากเปิดใช้ จะส่งกลับเฉพาะบริบทที่สืบค้นได้ โดยไม่สร้างคำตอบ",
++      "onlyNeedPrompt": "ต้องการเฉพาะพรอมต์",
++      "onlyNeedPromptTooltip": "หากเปิดใช้ จะส่งกลับเฉพาะพรอมต์ที่สร้างขึ้น โดยไม่สร้างคำตอบ",
++      "streamResponse": "ตอบแบบสตรีม",
++      "streamResponseTooltip": "หากเปิดใช้ จะแสดงคำตอบแบบสตรีมทันทีที่สร้างขึ้น",
++      "userPrompt": "พรอมต์กำหนดผลลัพธ์เพิ่มเติม",
++      "userPromptTooltip": "ระบุข้อกำหนดเพิ่มเติมเกี่ยวกับคำตอบให้แบบจำลองภาษา (ไม่เกี่ยวกับเนื้อหาคำถาม ใช้กับการจัดรูปแบบผลลัพธ์เท่านั้น) เซิร์ฟเวอร์อาจเติมพรอมต์ส่วนกลางไว้ข้างหน้า หากเว้นว่างไว้จะส่งเฉพาะพรอมต์ส่วนกลางของเซิร์ฟเวอร์",
++      "userPromptPlaceholder": "กรอกพรอมต์กำหนดเอง (ไม่บังคับ)",
++      "disableUserPromptPrefix": "ไม่ใช้พรอมต์ส่วนกลาง",
++      "disableUserPromptPrefixTooltip": "ไม่เติมพรอมต์กำหนดผลลัพธ์ส่วนกลางของเซิร์ฟเวอร์ไว้หน้าพรอมต์เพิ่มเติมด้านบน เปิดใช้ตัวเลือกนี้เพื่อควบคุมคำสั่งสุดท้ายทั้งหมดจากที่นี่",
++      "enableRerank": "เปิดใช้การจัดอันดับใหม่",
++      "enableRerankTooltip": "เปิดใช้การจัดอันดับส่วนข้อความที่สืบค้นได้ใหม่ หากเปิดใช้แต่ไม่ได้กำหนดแบบจำลองจัดอันดับ ระบบจะแสดงคำเตือน ค่าเริ่มต้นคือเปิดใช้"
++    }
++  },
++  "apiKeyAlert": {
++    "title": "ต้องใช้คีย์ API",
++    "description": "กรุณากรอกคีย์ API เพื่อเข้าใช้บริการ",
++    "placeholder": "กรอกคีย์ API",
++    "save": "บันทึก"
++  },
++  "pagination": {
++    "showing": "แสดงรายการที่ {{start}} ถึง {{end}} จากทั้งหมด {{total}} รายการ",
++    "page": "หน้า",
++    "pageSize": "จำนวนต่อหน้า",
++    "firstPage": "หน้าแรก",
++    "prevPage": "หน้าก่อนหน้า",
++    "nextPage": "หน้าถัดไป",
++    "lastPage": "หน้าสุดท้าย"
++  },
++  "workspace": {
++    "welcome": {
++      "defaultMarkdown": "ยินดีต้อนรับ ท่านสามารถถามคำถามเกี่ยวกับคลังความรู้และรับคำตอบพร้อมการอ้างอิง กรุณาเข้าสู่ระบบเพื่อเริ่มต้น",
++      "enterButton": "เข้าสู่พื้นที่ทำงาน",
++      "loginButton": "เข้าสู่ระบบ",
++      "enterFailed": "ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์ได้ กรุณาลองใหม่"
++    },
++    "queryEmpty": {
++      "defaultMarkdown": "ถามคำถามเกี่ยวกับคลังความรู้เพื่อเริ่มต้น"
++    }
++  },
++  "migration": {
++    "failedTitle": "เตรียมการตั้งค่าในเครื่องไม่สำเร็จ",
++    "failedBody": "ไม่สามารถย้ายการตั้งค่าที่บันทึกไว้ไปยังรูปแบบการจัดเก็บใหม่ได้ ไม่มีข้อมูลสูญหาย กรุณาโหลดหน้าใหม่เพื่อลองอีกครั้ง",
++    "dataLostTitle": "กู้คืนการตั้งค่าที่บันทึกไว้บางส่วนไม่ได้",
++    "dataLostBody": "พื้นที่จัดเก็บของเบราว์เซอร์เต็ม จึงไม่สามารถเก็บการตั้งค่าบางส่วน (ธีม ภาษา คีย์ API) ไว้ได้และกู้คืนไม่ได้อีก หากดำเนินการต่อ ระบบจะใช้ค่าที่เหลืออยู่ และใช้ค่าเริ่มต้นสำหรับส่วนที่เหลือ",
++    "continueAfterLoss": "ดำเนินการต่อ",
++    "retry": "โหลดใหม่",
++    "historyDropped": "ประวัติการสนทนาไม่สามารถเก็บในพื้นที่จัดเก็บของเบราว์เซอร์ระหว่างการอัปเกรดได้ จึงถูกทิ้ง การตั้งค่าถูกย้ายตามปกติ"
++  },
++  "retrievalHistory": {
++    "quotaDropped": "พื้นที่จัดเก็บของเบราว์เซอร์เต็ม จึงไม่มีการบันทึกประวัติการสนทนาอีกต่อไป การสนทนาปัจจุบันจะยังแสดงอยู่จนกว่าจะออกจากหน้านี้"
++  },
++  "panel": {
++    "show": "แสดง{{name}}",
++    "hide": "ซ่อน{{name}}"
++  },
++  "connect": {
++    "title": "เชื่อมต่อจากระบบภายนอก",
++    "intro": "ระบบอื่นใช้คลังความรู้นี้ได้ 2 ช่องทาง",
++    "mcpTab": "MCP (เอเจนต์ AI)",
++    "restTab": "REST API (แอป)",
++    "mcpWhen": "สำหรับเอเจนต์ AI ที่รองรับ MCP เช่น Hermes, Claude หรือ Cursor เอเจนต์จะเลือกใช้เครื่องมือเอง",
++    "restWhen": "สำหรับแอปหรือสคริปต์ของคุณเอง: ส่งคำถามแล้วรับคำตอบพร้อมแหล่งอ้างอิง",
++    "endpoint": "Endpoint",
++    "mcpTransport": "Streamable HTTP · POST",
++    "auth": "การยืนยันตัวตน",
++    "mcpAuth": "เฉพาะเมื่อกำหนด MCP_AUTH_TOKEN บนเซิร์ฟเวอร์: ส่ง header Authorization: Bearer <MCP_AUTH_TOKEN>",
++    "tools": "เครื่องมือ",
++    "toolQuery": "ถามคำถามจากคลังความรู้",
++    "toolInsert": "เพิ่มข้อความเข้าคลัง",
++    "toolList": "ดูรายการเอกสาร",
++    "toolDelete": "ลบเอกสาร (เฉพาะเมื่อกำหนด ENABLE_DELETE=true)",
++    "setup": "ตั้งค่าฝั่งผู้เรียกใช้",
++    "key": "API key",
++    "keyHint": "ส่งใน header X-API-Key คือค่า LIGHTRAG_API_KEY ที่ตั้งไว้บนเซิร์ฟเวอร์",
++    "keyNone": "ยังไม่ได้ใส่ key ในเบราว์เซอร์นี้",
++    "request": "คำขอ (JSON)",
++    "response": "ผลลัพธ์ (JSON)",
++    "stream": "หากต้องการรับคำตอบทีละส่วน ให้ใช้ POST /query/stream (NDJSON: หนึ่งบรรทัดต่อหนึ่ง JSON)",
++    "examples": "ตัวอย่างการเรียกใช้",
++    "docs": "endpoint ทั้งหมด (เอกสาร API)",
++    "copy": "คัดลอก",
++    "copied": "คัดลอกแล้ว",
++    "status": "สถานะ",
++    "online": "พร้อมใช้งาน",
++    "offline": "ไม่ตอบสนอง",
++    "checking": "กำลังตรวจ"
++  },
++  "sideChat": {
++    "title": "ถามคลังความรู้",
++    "mode": "โหมดการค้น",
++    "empty": "เริ่มต้นการสนทนาโดยพิมพ์คำถามด้านล่าง"
++  }
++}
+diff --git a/lightrag_webui/src/stores/settings.ts b/lightrag_webui/src/stores/settings.ts
+index adefd03..ae3356a 100644
+--- a/lightrag_webui/src/stores/settings.ts
++++ b/lightrag_webui/src/stores/settings.ts
+@@ -11,7 +11,7 @@ import {
+ import { createFutureGuardedStorage } from '@/lib/guardedStorage'
+ 
+ type Theme = 'dark' | 'light' | 'system'
+-type Language = 'en' | 'zh' | 'fr' | 'ar' | 'zh_TW' | 'ru' | 'ja' | 'de' | 'uk' | 'ko' | 'vi'
++type Language = 'th' | 'en' | 'zh' | 'fr' | 'ar' | 'zh_TW' | 'ru' | 'ja' | 'de' | 'uk' | 'ko' | 'vi'
+ type Tab = 'documents' | 'knowledge-graph' | 'retrieval'
+ 
+ // NOTE: `querySettings` and `retrievalHistory` were split out of this store
+@@ -100,7 +100,7 @@ interface SettingsState {
+ const useSettingsStoreBase = create<SettingsState>()(
+   persist(
+     (set) => ({
+-      theme: 'system',
++      theme: 'light',
+       language: 'en',
+       languageUserSelected: false,
+       showPropertyPanel: true,
+diff --git a/lightrag_webui/workspace.html b/lightrag_webui/workspace.html
+index 4a99aaf..98f6c57 100644
+--- a/lightrag_webui/workspace.html
++++ b/lightrag_webui/workspace.html
+@@ -5,9 +5,8 @@
+     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+     <meta http-equiv="Pragma" content="no-cache" />
+     <meta http-equiv="Expires" content="0" />
+-    <link rel="icon" type="image/png" href="favicon.png" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+-    <title>LightRAG</title>
++    <title>คลังความรู้ (Knowledge Base)</title>
+     <!-- __LIGHTRAG_RUNTIME_CONFIG__ -->
+   </head>
+   <body>

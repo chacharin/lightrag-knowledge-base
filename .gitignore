@@ -1,0 +1,19 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# the knowledge base itself: documents, vectors and graph of each installation
+data/*
+!data/rag_storage/
+!data/inputs/
+data/rag_storage/*
+data/inputs/*
+!data/rag_storage/.gitkeep
+!data/inputs/.gitkeep
+
+# local leftovers
+*.bak
+*.bak-*
+*.zip
+.DS_Store

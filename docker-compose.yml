@@ -1,0 +1,52 @@
+# lightrag-knowledge-base
+# - lightrag      LightRAG server + the Knowledge Base web UI (./webui) on ${WEBUI_PUBLISH_ADDR}:${WEBUI_PORT}
+#                 (default 0.0.0.0:9621 -> http://<host>:9621/webui/), data in ./data
+# - mcp-lightrag  MCP server for AI agents on ${MCP_PUBLISH_ADDR}:${MCP_PUBLISH_PORT} (default 0.0.0.0:8806 -> /mcp),
+#                 built from github.com/chacharin/mcp-lightrag; it is also the LLM meter that LightRAG calls
+#                 its LLM and embedding provider through (LLM_BINDING_HOST in .env), so every token is logged
+# Both read .env. They share the docker network ${DOCKER_NETWORK} (default agent_network) with the agents
+# that use them - create it once: docker network create agent_network
+services:
+  lightrag:
+    image: ${LIGHTRAG_IMAGE:-ghcr.io/hkuds/lightrag:v1.5.7}
+    container_name: lightrag
+    ports:
+      - "${WEBUI_PUBLISH_ADDR:-0.0.0.0}:${WEBUI_PORT:-9621}:9621"
+    volumes:
+      - ./data/rag_storage:/app/data/rag_storage
+      - ./data/inputs:/app/data/inputs
+      - ./.env:/app/.env:ro                    # LightRAG reads its settings from /app/.env
+      - ./webui:/app/lightrag/api/webui:ro     # the Knowledge Base web UI (built for LightRAG v1.5.7)
+    environment:
+      WORKING_DIR: /app/data/rag_storage
+      INPUT_DIR: /app/data/inputs
+      HOST: 0.0.0.0
+      PORT: "9621"
+    depends_on:
+      - mcp-lightrag                           # the LLM meter: LightRAG's model calls go through it
+    restart: unless-stopped
+    networks:
+      - agent_network
+
+  mcp-lightrag:
+    build: https://github.com/chacharin/mcp-lightrag.git#f45026d3ef1188fb333e3ae995a5b632199b4064
+    image: mcp-lightrag:kb
+    container_name: mcp-lightrag
+    env_file: .env
+    environment:
+      LIGHTRAG_URL: http://lightrag:9621
+    ports:
+      - "${MCP_PUBLISH_ADDR:-0.0.0.0}:${MCP_PUBLISH_PORT:-8806}:8700"
+    volumes:
+      - "usage:/app/usage"                     # usage log (GET /usage): tokens and timings of every call
+    restart: unless-stopped
+    networks:
+      - agent_network
+
+volumes:
+  usage:
+
+networks:
+  agent_network:
+    external: true
+    name: ${DOCKER_NETWORK:-agent_network}
