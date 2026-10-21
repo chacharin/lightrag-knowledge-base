@@ -176,7 +176,7 @@ window.__KB_CONFIG__ = {
 แก้หน้าเว็บ: clone LightRAG v1.5.7 ใส่ patch แก้ไขใน `lightrag_webui/` แล้วสร้าง patch ใหม่ด้วย `git add -A lightrag_webui && git diff --cached --binary -- lightrag_webui`
 จากนั้นสั่ง `sh webui-patch/build.sh` และ `docker compose restart lightrag`
 
-อัปเดต LightRAG: หน้าเว็บต้องตรงกับเวอร์ชันของเซิร์ฟเวอร์ ให้สร้าง patch สำหรับเวอร์ชันใหม่ (ใส่ patch เดิมแล้วแก้จุดที่ชน) ตั้งชื่อ `lightrag-webui-<เวอร์ชัน>.patch`
+อัปเดต LightRAG: หน้าเว็บต้องตรงกับเวอร์ชันของเซิร์ฟเวอร์ ให้สร้าง patch สำหรับเวอร์ชันใหม่ (ใส่ patch เดิมแล้วแก้จุดที่ตรงกัน ตั้งชื่อ `lightrag-webui-<เวอร์ชัน>.patch`
 แล้วสั่ง `LIGHTRAG_VERSION=<เวอร์ชัน> sh webui-patch/build.sh` และเปลี่ยน `LIGHTRAG_IMAGE` ให้ตรงกัน มุมขวาของแถวแท็บแสดงเวอร์ชันของเซิร์ฟเวอร์ หากมีเครื่องหมาย ⚠️ แปลว่าหน้าเว็บไม่ตรงกับเซิร์ฟเวอร์
 
 ## สัญญาอนุญาต
