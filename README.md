@@ -1,4 +1,4 @@
-# Lightrag-Knowledge-Base
+# LightRAG-Knowledge-Base
 
 คลังความรู้พร้อมใช้งานที่สร้างบน [LightRAG](https://github.com/HKUDS/LightRAG) ประกอบด้วยหน้าเว็บภาษาไทยและอังกฤษสำหรับจัดการเอกสาร ดูกราฟความรู้ และถามตอบ
 พร้อม MCP server ([mcp-lightrag](https://github.com/chacharin/mcp-lightrag)) ให้เอเจนต์ AI ค้นหาและเพิ่มเอกสารได้ ติดตั้งด้วย Docker Compose คำสั่งเดียว
