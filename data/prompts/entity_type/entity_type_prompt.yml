@@ -1,0 +1,49 @@
+### Entity types for the knowledge graph (ENTITY_TYPE_PROMPT_FILE in .env), read when a document is added.
+### Edit the list to fit your documents; documents already added keep the types they were extracted with.
+### ENTITY_EXTRACTION_USE_JSON=true uses entity_extraction_json_examples, false uses entity_extraction_examples
+### (both are kept here so either setting works). Format: prompts/samples/entity_type_prompt.sample.yml of LightRAG v1.5.7.
+
+entity_types_guidance: |
+  Classify each entity using one of the following types. If no type fits, use `Other`.
+  Keep entity names in the language and spelling of the source text (Thai names stay in Thai script).
+
+  - Person: Human individuals, real or fictional
+  - Organization: Companies, institutions, government agencies, units, groups
+  - Location: Geographic places (countries, provinces, cities, buildings, areas)
+  - Event: Occurrences, incidents, meetings, projects with a time span
+  - Concept: Abstract ideas, theories, principles, policies
+  - Method: Procedures, techniques, algorithms, workflows
+  - Content: Documents and works (reports, laws, regulations, articles, manuals)
+  - Data: Quantitative or structured information (statistics, budgets, measurements)
+  - Artifact: Physical or digital objects made by people (tools, software, devices, vehicles)
+  - NaturalObject: Natural non-living objects (minerals, rivers, chemical compounds)
+entity_extraction_examples:
+  - |
+    entity{tuple_delimiter}กรุงเทพมหานคร{tuple_delimiter}Organization{tuple_delimiter}กรุงเทพมหานครเป็นหน่วยงานที่ดูแลสวนลุมพินี
+    entity{tuple_delimiter}สวนลุมพินี{tuple_delimiter}Location{tuple_delimiter}สวนลุมพินีเป็นสวนสาธารณะที่เปิดทุกวันเวลา 04:30 ถึง 22:00 น. ภายในมีทะเลสาบสำหรับพายเรือ
+    relation{tuple_delimiter}กรุงเทพมหานคร{tuple_delimiter}สวนลุมพินี{tuple_delimiter}ดูแล, บริหารจัดการ{tuple_delimiter}กรุงเทพมหานครเป็นผู้ดูแลสวนลุมพินี
+    {completion_delimiter}
+entity_extraction_json_examples:
+  - |
+    {
+      "entities": [
+        {
+          "name": "กรุงเทพมหานคร",
+          "type": "Organization",
+          "description": "กรุงเทพมหานครเป็นหน่วยงานที่ดูแลสวนลุมพินี"
+        },
+        {
+          "name": "สวนลุมพินี",
+          "type": "Location",
+          "description": "สวนลุมพินีเป็นสวนสาธารณะที่เปิดทุกวันเวลา 04:30 ถึง 22:00 น. ภายในมีทะเลสาบสำหรับพายเรือ"
+        }
+      ],
+      "relationships": [
+        {
+          "source": "กรุงเทพมหานคร",
+          "target": "สวนลุมพินี",
+          "keywords": "ดูแล, บริหารจัดการ",
+          "description": "กรุงเทพมหานครเป็นผู้ดูแลสวนลุมพินี"
+        }
+      ]
+    }

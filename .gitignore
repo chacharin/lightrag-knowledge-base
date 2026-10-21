@@ -7,6 +7,7 @@
 data/*
 !data/rag_storage/
 !data/inputs/
+!data/prompts/
 data/rag_storage/*
 data/inputs/*
 !data/rag_storage/.gitkeep

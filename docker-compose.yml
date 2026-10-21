@@ -1,6 +1,6 @@
 # lightrag-knowledge-base
 # - lightrag      LightRAG server + the Knowledge Base web UI (./webui) on ${WEBUI_PUBLISH_ADDR}:${WEBUI_PORT}
-#                 (default 0.0.0.0:9621 -> http://<host>:9621/webui/), data in ./data
+#                 (default 0.0.0.0:9621 -> http://<host>:9621/webui/), data in ./data, prompts in ./data/prompts
 # - mcp-lightrag  MCP server for AI agents on ${MCP_PUBLISH_ADDR}:${MCP_PUBLISH_PORT} (default 0.0.0.0:8806 -> /mcp),
 #                 built from github.com/chacharin/mcp-lightrag; it is also the LLM meter that LightRAG calls
 #                 its LLM and embedding provider through (LLM_BINDING_HOST in .env), so every token is logged
@@ -15,11 +15,13 @@ services:
     volumes:
       - ./data/rag_storage:/app/data/rag_storage
       - ./data/inputs:/app/data/inputs
+      - ./data/prompts:/app/data/prompts:ro     # prompt ส่วนกลาง และชนิดเอนทิตีของกราฟ
       - ./.env:/app/.env:ro                    # LightRAG reads its settings from /app/.env
       - ./webui:/app/lightrag/api/webui:ro     # the Knowledge Base web UI (built for LightRAG v1.5.7)
     environment:
       WORKING_DIR: /app/data/rag_storage
       INPUT_DIR: /app/data/inputs
+      PROMPT_DIR: /app/data/prompts
       HOST: 0.0.0.0
       PORT: "9621"
     depends_on:
