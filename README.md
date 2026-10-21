@@ -130,9 +130,8 @@ window.__KB_CONFIG__ = {
 
 ## ข้อมูลการใช้งาน (token และเวลา)
 
-`GET http://<เครื่อง>:8806/usage?since=<epoch>` คืนระเบียนของทุกการเรียกเครื่องมือ และทุกครั้งที่ LightRAG เรียก LLM หรือ embedding ผ่านมิเตอร์
+`GET http://<เครื่อง>:8806/usage?since=<epoch>` คืนบันทึ(Log)ที่เกิดจากการใช้งานของทุกการเรียกเครื่องมือ และทุกครั้งที่ LightRAG เรียก LLM หรือ embedding ผ่านมิเตอร์
 ได้แก่ token ขาเข้า ขาออก และที่อ่านจาก cache ค่าใช้จ่ายที่ผู้ให้บริการรายงาน และเวลา โดยไม่มีเนื้อหาเอกสารหรือคำถาม
-รูปแบบข้อมูลเป็น schema `harness-usage/1` เดียวกับ [osint-harness-profile](https://github.com/chacharin/osint-harness-profile) จึงรวมกับข้อมูลของเอเจนต์ได้
 
 หากไม่ต้องการมิเตอร์ ให้ตั้ง `LLM_BINDING_HOST` และ `EMBEDDING_BINDING_HOST` ใน `.env` เป็นที่อยู่ของผู้ให้บริการโดยตรง แล้วสั่ง `docker compose restart lightrag`
 เมื่อใช้มิเตอร์ LightRAG จะเรียก LLM ได้เฉพาะตอนที่ mcp-lightrag ทำงานอยู่
