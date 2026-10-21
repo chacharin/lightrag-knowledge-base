@@ -172,6 +172,7 @@ window.__KB_CONFIG__ = {
 - `src/locales/th.json` (ใหม่) และคีย์ใหม่ใน `en.json` · เหลือเฉพาะภาษาไทยและอังกฤษ (`i18n.ts`, `browserLanguage.ts`)
 - `App.tsx` (layout สามคอลัมน์), `SiteHeader.tsx` (เหลือแถวแท็บ ไม่มีโลโก้ ลิงก์ GitHub และปุ่มตั้งค่า), `LoginPage.tsx` (ไม่มีโลโก้)
 - ธีมสว่างเสมอ (`ThemeProvider.tsx`), ฟอนต์ Sarabun (`index.html`, `index.css`), ไม่มีไอคอนของหน้า และชื่อแท็บ "คลังความรู้ (Knowledge Base)"
+- สีหลัก #8B2332 (`--primary`, `--ring` และสีไอคอนใน `index.css`) และไม่แสดงป้าย "ไม่ต้องเข้าสู่ระบบ" (Guest Mode)
 
 แก้หน้าเว็บ: clone LightRAG v1.5.7 ใส่ patch แก้ไขใน `lightrag_webui/` แล้วสร้าง patch ใหม่ด้วย `git add -A lightrag_webui && git diff --cached --binary -- lightrag_webui`
 จากนั้นสั่ง `sh webui-patch/build.sh` และ `docker compose restart lightrag`
